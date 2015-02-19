@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
         navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
+        Parse.enableLocalDatastore()
+        Parse.setApplicationId("0Feg8ESCxPhQiliWdyjAc8XGYyH1wrEmFJ3QXLVU", clientKey: "byg4s8jBmti8CW263m9cHiUm9az0tTLqGIiDOhAk")
         return true
     }
 

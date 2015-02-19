@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D6E2AFD3-E098-4D67-947C-C4A2A7CF5D6B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Head2Toe</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4775ED42AF456F45729D452EF400DEB0066EFA99</key>
+		<string>https://github.com/ooee123/Head2Toe.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Head2Toe.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4775ED42AF456F45729D452EF400DEB0066EFA99</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ooee123/Head2Toe.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4775ED42AF456F45729D452EF400DEB0066EFA99</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4775ED42AF456F45729D452EF400DEB0066EFA99</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Head2Toe</string>
+		</dict>
+	</array>
+</dict>
+</plist>
