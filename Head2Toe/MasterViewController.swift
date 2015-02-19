@@ -36,6 +36,8 @@ class MasterViewController: UITableViewController, FBLoginViewDelegate {
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
         var controller = UIImagePickerController()
+        self.fbLoginView.delegate = self
+        self.fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
     }
 
     override func didReceiveMemoryWarning() {
