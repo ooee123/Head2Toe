@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9550F8591A9663A1004D0B08 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9550F8581A9663A1004D0B08 /* LocationDelegate.swift */; };
 		95FBD44A1A95340A006AB5D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBD4491A95340A006AB5D0 /* AppDelegate.swift */; };
 		95FBD44C1A95340A006AB5D0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBD44B1A95340A006AB5D0 /* MasterViewController.swift */; };
 		95FBD44E1A95340A006AB5D0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBD44D1A95340A006AB5D0 /* DetailViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9550F8581A9663A1004D0B08 /* LocationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationDelegate.swift; path = ../LocationDelegate.swift; sourceTree = "<group>"; };
 		95FBD4441A95340A006AB5D0 /* Head2Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Head2Toe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FBD4481A95340A006AB5D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95FBD4491A95340A006AB5D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95FBD4791A956887006AB5D0 /* CoreLocation.framework in Frameworks */,
 				95FBD4871A9568BD006AB5D0 /* libsqlite3.dylib in Frameworks */,
 				95FBD4851A9568B8006AB5D0 /* libz.dylib in Frameworks */,
 				95FBD4831A9568AF006AB5D0 /* SystemConfiguration.framework in Frameworks */,
@@ -79,7 +82,6 @@
 				95FBD47F1A9568A3006AB5D0 /* Security.framework in Frameworks */,
 				95FBD47D1A956898006AB5D0 /* QuartzCore.framework in Frameworks */,
 				95FBD47B1A95688E006AB5D0 /* MobileCoreServices.framework in Frameworks */,
-				95FBD4791A956887006AB5D0 /* CoreLocation.framework in Frameworks */,
 				95FBD4771A956882006AB5D0 /* CoreGraphics.framework in Frameworks */,
 				95FBD4751A95687D006AB5D0 /* CFNetwork.framework in Frameworks */,
 				95FBD4731A956878006AB5D0 /* AudioToolbox.framework in Frameworks */,
@@ -134,6 +136,7 @@
 				95FBD46F1A956856006AB5D0 /* Parse.framework */,
 				95FBD4491A95340A006AB5D0 /* AppDelegate.swift */,
 				95FBD44B1A95340A006AB5D0 /* MasterViewController.swift */,
+				9550F8581A9663A1004D0B08 /* LocationDelegate.swift */,
 				95FBD44D1A95340A006AB5D0 /* DetailViewController.swift */,
 				95FBD44F1A95340A006AB5D0 /* Main.storyboard */,
 				95FBD4521A95340A006AB5D0 /* Images.xcassets */,
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95FBD44E1A95340A006AB5D0 /* DetailViewController.swift in Sources */,
+				9550F8591A9663A1004D0B08 /* LocationDelegate.swift in Sources */,
 				95FBD44C1A95340A006AB5D0 /* MasterViewController.swift in Sources */,
 				95FBD44A1A95340A006AB5D0 /* AppDelegate.swift in Sources */,
 			);
@@ -478,6 +482,7 @@
 				95FBD4671A95340A006AB5D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95FBD4681A95340A006AB5D0 /* Build configuration list for PBXNativeTarget "Head2ToeTests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +491,7 @@
 				95FBD46A1A95340A006AB5D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

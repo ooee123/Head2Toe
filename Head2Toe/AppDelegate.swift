@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -16,10 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        /*
         let splitViewController = self.window!.rootViewController as UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
         navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
+*/
+        let cameraViewController = self.window!.rootViewController as UIImagePickerController
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            cameraViewController.sourceType = UIImagePickerControllerSourceType.Camera
+            println("Available")
+        }
+        else
+        {
+            println("Not available")
+        }
+        
+        let gps = CLLocationManager()
+        gps.desiredAccuracy = 100
+        gps.distanceFilter = 100
+        
+        gps.delegate = LocationDelegate()
+        
         Parse.enableLocalDatastore()
         Parse.setApplicationId("0Feg8ESCxPhQiliWdyjAc8XGYyH1wrEmFJ3QXLVU", clientKey: "byg4s8jBmti8CW263m9cHiUm9az0tTLqGIiDOhAk")
         return true
