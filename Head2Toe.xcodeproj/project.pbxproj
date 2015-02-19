@@ -27,6 +27,9 @@
 		95FBD4831A9568AF006AB5D0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95FBD4821A9568AF006AB5D0 /* SystemConfiguration.framework */; };
 		95FBD4851A9568B8006AB5D0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 95FBD4841A9568B8006AB5D0 /* libz.dylib */; };
 		95FBD4871A9568BD006AB5D0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 95FBD4861A9568BD006AB5D0 /* libsqlite3.dylib */; };
+		A437C0631A9665C1002E4A18 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A437BF2A1A965DCD002E4A18 /* Bolts.framework */; };
+		A437C0641A9665C1002E4A18 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A437BF2B1A965DCD002E4A18 /* FacebookSDK.framework */; };
+		A437C0651A9665C1002E4A18 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A437BF2C1A965DCD002E4A18 /* FBAudienceNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -361,6 +364,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A437C0631A9665C1002E4A18 /* Bolts.framework in Frameworks */,
+				A437C0641A9665C1002E4A18 /* FacebookSDK.framework in Frameworks */,
+				A437C0651A9665C1002E4A18 /* FBAudienceNetwork.framework in Frameworks */,
 				95FBD4871A9568BD006AB5D0 /* libsqlite3.dylib in Frameworks */,
 				95FBD4851A9568B8006AB5D0 /* libz.dylib in Frameworks */,
 				95FBD4831A9568AF006AB5D0 /* SystemConfiguration.framework in Frameworks */,
@@ -1423,6 +1429,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Head2Toe",
+					/Users/Melly/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = Head2Toe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1441,6 +1448,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Head2Toe",
+					/Users/Melly/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = Head2Toe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
