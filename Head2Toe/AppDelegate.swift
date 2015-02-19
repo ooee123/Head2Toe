@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         splitViewController.delegate = self
         Parse.enableLocalDatastore()
         Parse.setApplicationId("0Feg8ESCxPhQiliWdyjAc8XGYyH1wrEmFJ3QXLVU", clientKey: "byg4s8jBmti8CW263m9cHiUm9az0tTLqGIiDOhAk")
+        
+        FBLoginView.self
+        FBProfilePictureView.self
         return true
     }
 
