@@ -17,13 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
-        navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+        let splitViewController = self.window!.rootViewController as UITabBarController
 
         FBLoginView.self
         FBProfilePictureView.self
         
+        /*
         let cameraViewController = self.window!.rootViewController as UIImagePickerController
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
@@ -35,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         {
             println("Not available")
         }
-        
+        */
         let gps = CLLocationManager()
         gps.desiredAccuracy = 100
         gps.distanceFilter = 100
