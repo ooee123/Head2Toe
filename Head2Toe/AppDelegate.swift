@@ -22,19 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         FBLoginView.self
         FBProfilePictureView.self
         
-        /*
-        let cameraViewController = self.window!.rootViewController as UIImagePickerController
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        {
-            println("Available")
-            cameraViewController.sourceType = UIImagePickerControllerSourceType.Camera
-        }
-        else
-        {
-            println("Not available")
-        }
-        */
+        
+
         let gps = CLLocationManager()
         gps.desiredAccuracy = 100
         gps.distanceFilter = 100
