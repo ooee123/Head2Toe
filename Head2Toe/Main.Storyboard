@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Upb-wU-emk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Upb-wU-emk">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -92,7 +92,7 @@
         <!--Item-->
         <scene sceneID="NPL-8z-z0p">
             <objects>
-                <viewController id="NSA-5C-k12" sceneMemberID="viewController">
+                <viewController id="NSA-5C-k12" customClass="LoginViewController" customModule="Head2Toe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j4O-6F-okU"/>
                         <viewControllerLayoutGuide type="bottom" id="W1I-lh-IJB"/>
@@ -100,13 +100,22 @@
                     <view key="view" contentMode="scaleToFill" id="6Yk-VG-9aH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aH7-Te-QYg" customClass="FBLoginView">
+                                <rect key="frame" x="164" y="60" width="234" height="137"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="XBN-M3-NA9"/>
+                    <connections>
+                        <outlet property="fbLoginView" destination="aH7-Te-QYg" id="VkK-Wd-jbf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njt-SW-ATp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-306" y="-4019"/>
+            <point key="canvasLocation" x="-176" y="-3853"/>
         </scene>
         <!--Item-->
         <scene sceneID="To2-ZV-r5T">
