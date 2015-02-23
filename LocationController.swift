@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import CoreLocation
 
 class LocationController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var latitude: UILabel!
     @IBOutlet weak var longitude: UILabel!
     @IBOutlet var locationView: UIView!
+    @IBOutlet weak var landmark: UILabel!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,8 +35,14 @@ class LocationController: UIViewController, CLLocationManagerDelegate {
         let lastLocation = locations.last as CLLocation
         latitude.text = "Latitude: \(lastLocation.coordinate.latitude)"
         longitude.text = "Latitude: \(lastLocation.coordinate.longitude)"
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(lastLocation) {(placemark: [AnyObject]!, error: NSError!) -> Void in
+            if (error == nil) {
+                let mark = placemark.last as CLPlacemark
+                self.landmark.text = mark.name
+            }
+        }
     }
-
     /*
     // MARK: - Navigation
 

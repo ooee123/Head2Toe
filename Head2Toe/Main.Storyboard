@@ -158,11 +158,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGF-PS-r2g">
+                                <rect key="frame" x="16" y="78" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="af3-X2-l6D"/>
                     <connections>
+                        <outlet property="landmark" destination="EGF-PS-r2g" id="IGH-T9-8Nw"/>
                         <outlet property="latitude" destination="Ysf-OI-HmP" id="4yK-Lx-jIi"/>
                         <outlet property="locationView" destination="Lf6-Kl-TLv" id="vEw-6r-QNb"/>
                         <outlet property="longitude" destination="YID-CV-zi1" id="d1E-i6-ShH"/>
