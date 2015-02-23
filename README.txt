@@ -1,0 +1,4 @@
+In our left most tab we have the camera/photo library app. This will go into parse.com and access our "outfits" stored on file. The warning "A long-running operation is being executed on the main thread. 
+ Break on warnBlockingOperationOnMainThread() to debug." Is due to an operation that needs to access the parse page. However the sucessful Photo Save and Successful Load are meant to notify us that the photos have been loaded/saved.
+
+In our middle tab you will be able to access our facebook login page. In the debugging out put it will tell us when the user has logged out/logged in, as well as a lot of useful information we can use. We will mainly be using the first name and id number. However we have access to his public profile, email, and friends list. 
