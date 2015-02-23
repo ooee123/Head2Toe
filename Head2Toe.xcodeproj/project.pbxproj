@@ -11,7 +11,7 @@
 		95362D0C1A96ECD0000A38CD /* Main.Storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95362D0B1A96ECD0000A38CD /* Main.Storyboard */; };
 		95362D0E1A96F28B000A38CD /* ParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95362D0D1A96F28B000A38CD /* ParseViewController.swift */; };
 		95362D101A9724BD000A38CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95362D0F1A9724BD000A38CD /* CameraViewController.swift */; };
-		9550F8591A9663A1004D0B08 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9550F8581A9663A1004D0B08 /* LocationDelegate.swift */; };
+		956D494C1A9AFD390011ECDE /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956D494B1A9AFD390011ECDE /* LocationController.swift */; };
 		95FBD44A1A95340A006AB5D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBD4491A95340A006AB5D0 /* AppDelegate.swift */; };
 		95FBD44C1A95340A006AB5D0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBD44B1A95340A006AB5D0 /* MasterViewController.swift */; };
 		95FBD44E1A95340A006AB5D0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBD44D1A95340A006AB5D0 /* DetailViewController.swift */; };
@@ -49,7 +49,7 @@
 		95362D0B1A96ECD0000A38CD /* Main.Storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.Storyboard; sourceTree = "<group>"; };
 		95362D0D1A96F28B000A38CD /* ParseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseViewController.swift; sourceTree = "<group>"; };
 		95362D0F1A9724BD000A38CD /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		9550F8581A9663A1004D0B08 /* LocationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationDelegate.swift; path = ../LocationDelegate.swift; sourceTree = "<group>"; };
+		956D494B1A9AFD390011ECDE /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationController.swift; path = ../LocationController.swift; sourceTree = "<group>"; };
 		95FBD4441A95340A006AB5D0 /* Head2Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Head2Toe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FBD4481A95340A006AB5D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95FBD4491A95340A006AB5D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 				95362D0F1A9724BD000A38CD /* CameraViewController.swift */,
 				A437C0681A9AD3DB002E4A18 /* LoginViewController.swift */,
 				95FBD44B1A95340A006AB5D0 /* MasterViewController.swift */,
+				956D494B1A9AFD390011ECDE /* LocationController.swift */,
 				95362D0B1A96ECD0000A38CD /* Main.Storyboard */,
-				9550F8581A9663A1004D0B08 /* LocationDelegate.swift */,
 				95FBD44D1A95340A006AB5D0 /* DetailViewController.swift */,
 				95362D0D1A96F28B000A38CD /* ParseViewController.swift */,
 				95FBD4521A95340A006AB5D0 /* Images.xcassets */,
@@ -296,9 +296,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				956D494C1A9AFD390011ECDE /* LocationController.swift in Sources */,
 				A437C0691A9AD3DB002E4A18 /* LoginViewController.swift in Sources */,
 				95FBD44E1A95340A006AB5D0 /* DetailViewController.swift in Sources */,
-				9550F8591A9663A1004D0B08 /* LocationDelegate.swift in Sources */,
 				95FBD44C1A95340A006AB5D0 /* MasterViewController.swift in Sources */,
 				95FBD44A1A95340A006AB5D0 /* AppDelegate.swift in Sources */,
 				95362D0E1A96F28B000A38CD /* ParseViewController.swift in Sources */,
