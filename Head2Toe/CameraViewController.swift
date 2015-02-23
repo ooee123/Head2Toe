@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CameraViewController: UIImagePickerController {
+class CameraViewController: UIImagePickerController, UIImagePickerControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +18,13 @@ class CameraViewController: UIImagePickerController {
             println("Using Camera as Source")
             sourceType = UIImagePickerControllerSourceType.Camera
         }
-        else
+        else if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary)
         {
             println("Using Photos as Source")
-            sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
+            sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         }
+        allowsEditing = false
+        
         // Do any additional setup after loading the view.
     }
 
@@ -31,7 +33,6 @@ class CameraViewController: UIImagePickerController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
