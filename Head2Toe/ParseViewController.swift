@@ -77,6 +77,7 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 println("Failure Photo Save")
             }
         }
+        
         var photoObject = PFObject(className: "Photo")
         photoObject["name"] = "Ooee"
         photoObject["photo"] = photo
