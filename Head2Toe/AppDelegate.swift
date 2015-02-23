@@ -19,11 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Override point for customization after application launch.
         let splitViewController = self.window!.rootViewController as UITabBarController
 
-        FBLoginView.self
-        FBProfilePictureView.self
-        
-        
-        
 
         let gps = CLLocationManager()
         gps.desiredAccuracy = 100
