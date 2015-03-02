@@ -14,13 +14,17 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var text: UITextField!
     @IBOutlet weak var submit: UIButton!
     @IBOutlet weak var photoButton: UIButton!
+    @IBOutlet weak var cameraButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         submit.addTarget(self, action: "submitData", forControlEvents: UIControlEvents.TouchDown)
         photoButton.addTarget(self, action: "selectPhoto", forControlEvents: UIControlEvents.TouchDown)
-        
+        cameraButton.addTarget(self, action: "useCamera", forControlEvents: UIControlEvents.TouchDown)
+        if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            cameraButton.hidden = true
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -55,6 +59,13 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 println("Failure Load")
             }
         }
+    }
+    
+    dynamic func useCamera()
+    {
+        var cameraView = CameraViewController()
+        cameraView.delegate = self
+        presentViewController(cameraView, animated: true, completion: nil)
     }
     
     dynamic func selectPhoto()

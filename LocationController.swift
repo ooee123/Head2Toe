@@ -14,16 +14,19 @@ class LocationController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var longitude: UILabel!
     @IBOutlet var locationView: UIView!
     @IBOutlet weak var landmark: UILabel!
+    @IBOutlet weak var longDescription: UITextView!
 
+    let location : CLLocationManager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let location = CLLocationManager()
-        location.desiredAccuracy = 100
+        location.desiredAccuracy = kCLLocationAccuracyBest
         location.distanceFilter = 10
         location.delegate = self
+        
         location.startUpdatingLocation()
+        println("Is enabled? \( CLLocationManager.locationServicesEnabled())")
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +36,7 @@ class LocationController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         let lastLocation = locations.last as CLLocation
+        println("Inside")
         latitude.text = "Latitude: \(lastLocation.coordinate.latitude)"
         longitude.text = "Latitude: \(lastLocation.coordinate.longitude)"
         let geocoder = CLGeocoder()
@@ -40,8 +44,19 @@ class LocationController: UIViewController, CLLocationManagerDelegate {
             if (error == nil) {
                 let mark = placemark.last as CLPlacemark
                 self.landmark.text = mark.name
+                self.longDescription.text = mark.name
             }
         }
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println("Some error occured")
+        println(error.localizedDescription)
+        println(error.localizedFailureReason)
+    }
+
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        println(status)
     }
     /*
     // MARK: - Navigation
