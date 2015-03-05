@@ -14,13 +14,18 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var text: UITextField!
     @IBOutlet weak var submit: UIButton!
     @IBOutlet weak var photoButton: UIButton!
+    @IBOutlet weak var cameraButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         submit.addTarget(self, action: "submitData", forControlEvents: UIControlEvents.TouchDown)
         photoButton.addTarget(self, action: "selectPhoto", forControlEvents: UIControlEvents.TouchDown)
-        
+        cameraButton.addTarget(self, action: "useCamera", forControlEvents: UIControlEvents.TouchDown)
+        cameraButton.hidden = false
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            cameraButton.hidden = false
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -57,15 +62,26 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
+    dynamic func useCamera()
+    {
+        var cameraView = CameraViewController()
+        cameraView.delegate = self
+        presentViewController(cameraView, animated: true, completion: nil)
+        //performSegueWithIdentifier("detailImage", sender: self)
+    }
+    
     dynamic func selectPhoto()
     {
         var cameraView = CameraViewController()
         cameraView.delegate = self
         presentViewController(cameraView, animated: true, completion: nil)
+        //performSegueWithIdentifier("detailImage", sender: self)
+        
     }
     
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         
+        /*
         var photoData = UIImagePNGRepresentation(image)
         //var photoData = editingInfo[UIImagePickerControllerOriginalImage]?.
         var photo = PFFile(name: "photo.png", data: photoData)
@@ -82,6 +98,7 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
         photoObject["name"] = "Ooee"
         photoObject["photo"] = photo
         photoObject.save()
+*/
         /*
         photoObject.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
             if (success) {
@@ -92,9 +109,18 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
             }
         }
         */
-        dismissViewControllerAnimated(true, completion: nil)
+        //self.performSegueWithIdentifier("detailImage", sender: self)
+        //self.performSegueWithIdentifier("detailImage", sender: self)
+        //self.presentViewController(DetailViewController(), animated: true, completion: nil)
+        
+        dismissViewControllerAnimated(false, completion: {() -> Void in
+            //self.presentViewController(DetailViewController(), animated: true, completion: nil)
+            self.performSegueWithIdentifier("detailImage", sender: image)
+        })
         
         
+        
+        /*
         var imageID = "eMZp7IaPgL"
         var query = PFQuery(className: "Photo")
         query.getObjectInBackgroundWithId(imageID) {(photo: PFObject!, error: NSError!) -> Void in
@@ -107,16 +133,20 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 println("Failure Loading Image Class")
             }
         }
+*/
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "detailImage" {
+            let detail = segue.destinationViewController as DetailViewController
+            detail.labelText = "hello"
+            detail.imageObj = sender as UIImage
+        }
     }
-    */
-
 }

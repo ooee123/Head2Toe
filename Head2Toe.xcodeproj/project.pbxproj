@@ -251,7 +251,7 @@
 					};
 					95FBD45A1A95340A006AB5D0 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = AW7AKNL7YJ;
+						DevelopmentTeam = PY9957M84G;
 						TestTargetID = 95FBD4431A95340A006AB5D0;
 					};
 				};
