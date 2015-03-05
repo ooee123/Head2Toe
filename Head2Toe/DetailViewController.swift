@@ -10,9 +10,23 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
 
-
+    var labelText : String = "Hello"
+        {
+        didSet {
+            descriptionLabel?.text = labelText
+        }
+    }
+    
+    var imageObj : UIImage = UIImage()
+        {
+        didSet {
+            image?.image = imageObj
+        }
+    }
+    
     var detailItem: AnyObject? {
         didSet {
             // Update the view.
@@ -22,15 +36,19 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
+        /*
         if let detail: AnyObject = self.detailItem {
             if let label = self.detailDescriptionLabel {
                 label.text = detail.description
             }
         }
+*/
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        descriptionLabel?.text = labelText
+        image?.image = imageObj
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
     }

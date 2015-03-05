@@ -48,6 +48,9 @@
                                 <state key="normal" title="Use Photo Library">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="7Bk-UY-r6z" kind="showDetail" identifier="detailImage" id="zmH-uP-uPN"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLU-eW-cze">
                                 <rect key="frame" x="127" y="32" width="51" height="21"/>
@@ -112,6 +115,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cuF-VR-LOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-111" y="-5494"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="gE1-sT-gI8">
+            <objects>
+                <viewController id="7Bk-UY-r6z" customClass="DetailViewController" customModule="Head2Toe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TUX-lJ-27V"/>
+                        <viewControllerLayoutGuide type="bottom" id="k3K-2q-HDz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CWA-gr-3ex">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bkq-Nj-vhc">
+                                <rect key="frame" x="-22" y="-20" width="622" height="421"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Insert Tags Here" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGh-z2-ttE">
+                                <rect key="frame" x="16" y="409" width="360" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWc-Pw-AUu">
+                                <rect key="frame" x="16" y="482" width="183" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="wWc-Pw-AUu" id="CpT-vx-bRK"/>
+                        <outlet property="image" destination="Bkq-Nj-vhc" id="lpx-df-ode"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tGT-Y7-k1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="120" y="-4818"/>
         </scene>
         <!--Item-->
         <scene sceneID="NPL-8z-z0p">
