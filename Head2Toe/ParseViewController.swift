@@ -67,7 +67,6 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
         var cameraView = CameraViewController()
         cameraView.delegate = self
         presentViewController(cameraView, animated: true, completion: nil)
-        //performSegueWithIdentifier("detailImage", sender: self)
     }
     
     dynamic func selectPhoto()
@@ -75,45 +74,11 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
         var cameraView = CameraViewController()
         cameraView.delegate = self
         presentViewController(cameraView, animated: true, completion: nil)
-        //performSegueWithIdentifier("detailImage", sender: self)
         
     }
     
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        
-        /*
-        var photoData = UIImagePNGRepresentation(image)
-        //var photoData = editingInfo[UIImagePickerControllerOriginalImage]?.
-        var photo = PFFile(name: "photo.png", data: photoData)
-        photo.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
-            if (success) {
-                println("Successful Photo Save")
-            }
-            else {
-                println("Failure Photo Save")
-            }
-        }
-        
-        var photoObject = PFObject(className: "Photo")
-        photoObject["name"] = "Ooee"
-        photoObject["photo"] = photo
-        photoObject.save()
-*/
-        /*
-        photoObject.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
-            if (success) {
-                println("Successful Photo Object Save")
-            }
-            else {
-                println("Failure Photo Object Save")
-            }
-        }
-        */
-        //self.performSegueWithIdentifier("detailImage", sender: self)
-        //self.performSegueWithIdentifier("detailImage", sender: self)
-        //self.presentViewController(DetailViewController(), animated: true, completion: nil)
-        
-        dismissViewControllerAnimated(false, completion: {() -> Void in
+            dismissViewControllerAnimated(false, completion: {() -> Void in
             //self.presentViewController(DetailViewController(), animated: true, completion: nil)
             self.performSegueWithIdentifier("detailImage", sender: image)
         })

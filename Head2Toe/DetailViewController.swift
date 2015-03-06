@@ -12,7 +12,8 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
-
+    @IBOutlet weak var submitButton: UIButton!
+    
     var labelText : String = "Hello"
         {
         didSet {
@@ -44,15 +45,43 @@ class DetailViewController: UIViewController {
         }
 */
     }
+    @IBAction func submitPhoto(sender: AnyObject) {
+
+        var photoData = UIImagePNGRepresentation(image.image)
+        var photoFile = PFFile(name: "photo.png", data: photoData)
+        photoFile.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
+            if (success) {
+                println("Successful Photo Save")
+            }
+            else {
+                println("Failure Photo Save")
+            }
+        }
+        
+        var photoObject = PFObject(className: "Outfit")
+        photoObject["name"] = "Ooee"
+        photoObject["photo"] = photoFile
+        photoObject.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
+            if (success) {
+                println("Success")
+            }
+            else {
+                println("Failure")
+            }
+        }
+        self.navigationController?.popViewControllerAnimated(true)
+
+        //dismissViewControllerAnimated(true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        descriptionLabel?.text = labelText
-        image?.image = imageObj
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+        descriptionLabel?.text = labelText
+        image?.image = imageObj
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
