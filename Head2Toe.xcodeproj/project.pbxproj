@@ -31,6 +31,7 @@
 		95FBD4851A9568B8006AB5D0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 95FBD4841A9568B8006AB5D0 /* libz.dylib */; };
 		95FBD4871A9568BD006AB5D0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 95FBD4861A9568BD006AB5D0 /* libsqlite3.dylib */; };
 		A437C0691A9AD3DB002E4A18 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437C0681A9AD3DB002E4A18 /* LoginViewController.swift */; };
+		A437C1AC1A9CF59B002E4A18 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A437C1AB1A9CF59B002E4A18 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		95FBD4841A9568B8006AB5D0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		95FBD4861A9568BD006AB5D0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A437C0681A9AD3DB002E4A18 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A437C1AB1A9CF59B002E4A18 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95FBD4791A956887006AB5D0 /* CoreLocation.framework in Frameworks */,
+				A437C1AC1A9CF59B002E4A18 /* StoreKit.framework in Frameworks */,
 				95FBD4871A9568BD006AB5D0 /* libsqlite3.dylib in Frameworks */,
 				95FBD4851A9568B8006AB5D0 /* libz.dylib in Frameworks */,
 				95FBD4831A9568AF006AB5D0 /* SystemConfiguration.framework in Frameworks */,
@@ -109,6 +112,7 @@
 		95362D081A96EBC4000A38CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A437C1AB1A9CF59B002E4A18 /* StoreKit.framework */,
 				95362D091A96EC4E000A38CD /* FacebookSDK.framework */,
 			);
 			name = Frameworks;
@@ -238,7 +242,7 @@
 				TargetAttributes = {
 					95FBD4431A95340A006AB5D0 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = PY9957M84G;
+						DevelopmentTeam = AW7AKNL7YJ;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;

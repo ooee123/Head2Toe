@@ -21,8 +21,10 @@ class LocationController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        location.desiredAccuracy = kCLLocationAccuracyBest
-        location.distanceFilter = 10
+        println("Entered view controller")
+        let location = CLLocationManager()
+        location.desiredAccuracy = 10
+        location.distanceFilter = 1
         location.delegate = self
         
         location.startUpdatingLocation()
@@ -35,6 +37,7 @@ class LocationController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        println("Inside location delegate")
         let lastLocation = locations.last as CLLocation
         println("Inside")
         latitude.text = "Latitude: \(lastLocation.coordinate.latitude)"
