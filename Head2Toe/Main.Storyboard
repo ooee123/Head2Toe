@@ -13,7 +13,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hzm-fb-zGt">
-                            <size key="itemSize" width="192" height="192"/>
+                            <size key="itemSize" width="168" height="168"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -23,25 +23,23 @@
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="192" height="192"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="168" height="168"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2YT-uf-8Me">
-                                            <rect key="frame" x="15" y="37" width="192" height="192"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="168" height="168"/>
                                         </imageView>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ecT-eJ-Jkp">
-                                            <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
-                                        </switch>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="imageView" destination="2YT-uf-8Me" id="kem-tz-lAI"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="vqA-DN-oUF" id="sju-RJ-177"/>
+                            <outlet property="dataSource" destination="vqA-DN-oUF" id="zuS-Xs-t1O"/>
                             <outlet property="delegate" destination="vqA-DN-oUF" id="MtM-WX-01y"/>
                         </connections>
                     </collectionView>
@@ -49,7 +47,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cof-JR-GEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1458" y="-5148"/>
+            <point key="canvasLocation" x="-1452" y="-5157"/>
         </scene>
         <!--Home Page Tab Bar Controller-->
         <scene sceneID="7Pl-fu-uS5">

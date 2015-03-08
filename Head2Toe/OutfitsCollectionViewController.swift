@@ -20,12 +20,12 @@ class OutfitsCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        self.clearsSelectionOnViewWillAppear = false
+        //self.clearsSelectionOnViewWillAppear = false
         
         userID = (tabBarController as HomePageTabBarController).user!.objectID
         
         // Register cell classes
-        self.collectionView!.registerClass(OutfitCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.registerClass(OutfitCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -58,14 +58,16 @@ class OutfitsCollectionViewController: UICollectionViewController {
         
         var tagggs = PFQuery(className: "Tags").findObjects()
         var query = PFQuery(className: "Outfit")
-        selected = query.findObjects()
         query.whereKey("userID", equalTo: userID)
-        return 10
+        
+        selected = query.findObjects()
+        
+        return selected.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as OutfitCollectionViewCell
-    
+        println(indexPath.row)
         // Configure the cell
         var outfit = selected[indexPath.indexAtPosition(0)] as PFObject
         cell.image = UIImage(data: (outfit["photo"].getData()))
