@@ -12,6 +12,8 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     @IBOutlet var fbLoginView : FBLoginView!
     
+    var user : FBGraphUser? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,16 +31,13 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "HomeSegue" {
+            let homePage = segue.destinationViewController as HomePageTabBarController
+            homePage.user = user
+        }
     }
-    */
+
     // Facebook Delegate Methods
     
     func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
@@ -52,6 +51,10 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         println("User Name: \(user.name)")
         var userEmail = user.objectForKey("email") as String
         println("User Email: \(userEmail)")
+        
+        self.user = user
+        
+        performSegueWithIdentifier("HomeSegue", sender: self)
     }
     
     func loginViewShowingLoggedOutUser(loginView : FBLoginView!) {
@@ -61,5 +64,4 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     func loginView(loginView : FBLoginView!, handleError:NSError) {
         println("Error: \(handleError.localizedDescription)")
     }
-    
 }

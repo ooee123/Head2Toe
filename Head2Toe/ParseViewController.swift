@@ -10,23 +10,19 @@ import UIKit
 
 class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet var parseView: UIView!
-    @IBOutlet weak var text: UITextField!
-    @IBOutlet weak var submit: UIButton!
     @IBOutlet weak var photoButton: UIButton!
     @IBOutlet weak var cameraButton: UIButton!
     
+    var userID : String! = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        submit.addTarget(self, action: "submitData", forControlEvents: UIControlEvents.TouchDown)
-        photoButton.addTarget(self, action: "selectPhoto", forControlEvents: UIControlEvents.TouchDown)
-        cameraButton.addTarget(self, action: "useCamera", forControlEvents: UIControlEvents.TouchDown)
         cameraButton.hidden = false
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-            cameraButton.hidden = false
+            cameraButton.hidden = true
         }
         // Do any additional setup after loading the view.
+        self.userID = (tabBarController as HomePageTabBarController).user!.objectID
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,71 +30,24 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
         // Dispose of any resources that can be recreated.
     }
     
-    dynamic func submitData()
-    {
-        var gameScore = PFObject(className: "Score")
-        gameScore["player"] = text?.text
-        gameScore["score"] = 700
-        gameScore.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
-            if (success) {
-                println("Success")
-            }
-            else {
-                println("Failure")
-            }
-        }
-        //var objectID = gameScore.objectId
-        var objectID = "jnvveI5jYg"
-        var query = PFQuery(className: "Score")
-        query.getObjectInBackgroundWithId(objectID) {(score: PFObject!, error: NSError!) -> Void in
-            if (error == nil) {
-                println("Successful Load")
-                println(score["player"])
-                println(score["score"])
-            }
-            else {
-                println("Failure Load")
-            }
-        }
-    }
-    
-    dynamic func useCamera()
-    {
+    @IBAction func useCamera(sender: AnyObject) {
         var cameraView = CameraViewController()
         cameraView.delegate = self
         presentViewController(cameraView, animated: true, completion: nil)
     }
     
-    dynamic func selectPhoto()
-    {
+    @IBAction func selectPhoto(sender: AnyObject) {
         var cameraView = CameraViewController()
         cameraView.delegate = self
         presentViewController(cameraView, animated: true, completion: nil)
-        
     }
     
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
             dismissViewControllerAnimated(false, completion: {() -> Void in
-            //self.presentViewController(DetailViewController(), animated: true, completion: nil)
             self.performSegueWithIdentifier("detailImage", sender: image)
+            //self.presentViewController(DetailViewController(), animated: true, completion: nil)
+            //    self.performSegueWithIdentifier(<#identifier: String?#>, sender: <#AnyObject?#>)
         })
-        
-        
-        
-        /*
-        var imageID = "eMZp7IaPgL"
-        var query = PFQuery(className: "Photo")
-        query.getObjectInBackgroundWithId(imageID) {(photo: PFObject!, error: NSError!) -> Void in
-            if (error == nil) {
-                println("Successful Load")
-                var imageView = UIImageView(image: UIImage(data: photo["photo"].getData()))
-                self.view.addSubview(imageView)
-            }
-            else {
-                println("Failure Loading Image Class")
-            }
-        }
-*/
     }
 
     
@@ -108,9 +57,9 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "detailImage" {
+        if segue.identifier == "detailImage" && sender is UIImage {
             let detail = segue.destinationViewController as DetailViewController
-            detail.labelText = "hello"
+            detail.userID = userID
             detail.imageObj = sender as UIImage
         }
     }

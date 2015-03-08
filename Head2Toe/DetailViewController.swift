@@ -8,18 +8,13 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
-
+class DetailViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var tagsTextBox: UITextField!
     @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
     
-    var labelText : String = "Hello"
-        {
-        didSet {
-            descriptionLabel?.text = labelText
-        }
-    }
+    var userID : String! = ""
     
     var imageObj : UIImage = UIImage()
         {
@@ -37,49 +32,50 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        /*
-        if let detail: AnyObject = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.description
-            }
-        }
-*/
     }
+    
     @IBAction func submitPhoto(sender: AnyObject) {
 
-        var photoData = UIImagePNGRepresentation(image.image)
+        var photoData = UIImagePNGRepresentation(imageObj)
         var photoFile = PFFile(name: "photo.png", data: photoData)
         photoFile.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
-            if (success) {
-                println("Successful Photo Save")
+            var tags : [String] = []
+            var separatedTags = self.tagsTextBox.text.componentsSeparatedByString(",")
+            for t in separatedTags {
+                tags.append(t.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: " ")))
             }
-            else {
-                println("Failure Photo Save")
-            }
-        }
-        
-        var photoObject = PFObject(className: "Outfit")
-        photoObject["name"] = "Ooee"
-        photoObject["photo"] = photoFile
-        photoObject.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
-            if (success) {
-                println("Success")
-            }
-            else {
-                println("Failure")
+            var photoObject = PFObject(className: "Outfit")
+            photoObject["userID"] = self.userID
+            photoObject["photo"] = photoFile
+            photoObject.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
+                if (success) {
+                    for t in tags {
+                        var tagsObject = PFObject(className: "Tags")
+                        tagsObject["refImageID"] = photoObject.objectId
+                        tagsObject["tags"] = t
+                        tagsObject.saveInBackgroundWithBlock(nil)
+                    }
+                }
+                else {
+                    println(error.localizedDescription)
+                    println("Failure")
+                }
             }
         }
         self.navigationController?.popViewControllerAnimated(true)
-
-        //dismissViewControllerAnimated(true, completion: nil)
     }
 
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
-        descriptionLabel?.text = labelText
         image?.image = imageObj
+        tagsTextBox.delegate = self
     }
     
     override func didReceiveMemoryWarning() {

@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Upb-wU-emk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NSA-5C-k12">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Item-->
+        <scene sceneID="RKf-5V-zCh">
+            <objects>
+                <collectionViewController id="vqA-DN-oUF" customClass="OutfitsCollectionViewController" customModule="Head2Toe" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="xfH-AY-aUR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hzm-fb-zGt">
+                            <size key="itemSize" width="192" height="192"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OutfitCell" id="6tY-wL-o5B" customClass="OutfitCollectionViewCell" customModule="Head2Toe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="192" height="192"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2YT-uf-8Me">
+                                            <rect key="frame" x="15" y="37" width="192" height="192"/>
+                                        </imageView>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ecT-eJ-Jkp">
+                                            <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                        </switch>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="imageView" destination="2YT-uf-8Me" id="kem-tz-lAI"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="vqA-DN-oUF" id="sju-RJ-177"/>
+                            <outlet property="delegate" destination="vqA-DN-oUF" id="MtM-WX-01y"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="Ubs-qy-JGT"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cof-JR-GEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1458" y="-5148"/>
+        </scene>
+        <!--Home Page Tab Bar Controller-->
         <scene sceneID="7Pl-fu-uS5">
             <objects>
-                <tabBarController id="Upb-wU-emk" sceneMemberID="viewController">
+                <tabBarController id="Upb-wU-emk" customClass="HomePageTabBarController" customModule="Head2Toe" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="3C4-hJ-pc1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -16,14 +62,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="NSA-5C-k12" kind="relationship" relationship="viewControllers" id="eyc-Jz-dM5"/>
                         <segue destination="eqM-GZ-h9C" kind="relationship" relationship="viewControllers" id="alN-6J-mA5"/>
                         <segue destination="ktC-eM-j9w" kind="relationship" relationship="viewControllers" id="pcQ-qe-urG"/>
+                        <segue destination="vqA-DN-oUF" kind="relationship" relationship="viewControllers" id="TKO-hM-SBZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ubi-0z-K2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1420" y="-4347"/>
+            <point key="canvasLocation" x="-1452" y="-4367"/>
         </scene>
         <!--Item-->
         <scene sceneID="viA-nF-foM">
@@ -37,37 +83,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjh-Og-Hv7">
-                                <rect key="frame" x="16" y="28" width="103" height="30"/>
-                                <state key="normal" title="Send to Server">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWt-hi-tUr">
-                                <rect key="frame" x="16" y="66" width="124" height="30"/>
+                                <rect key="frame" x="16" y="72" width="124" height="30"/>
                                 <state key="normal" title="Use Photo Library">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7Bk-UY-r6z" kind="show" identifier="detailImage" id="zmH-uP-uPN"/>
+                                    <action selector="selectPhoto:" destination="LLn-im-twY" eventType="touchUpInside" id="VxY-BE-Gmi"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLU-eW-cze">
-                                <rect key="frame" x="127" y="32" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PZV-pn-1Cv">
-                                <rect key="frame" x="186" y="28" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SvK-lO-nvW">
-                                <rect key="frame" x="16" y="104" width="85" height="30"/>
+                                <rect key="frame" x="16" y="110" width="85" height="30"/>
                                 <state key="normal" title="Use Camera">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="useCamera:" destination="LLn-im-twY" eventType="touchUpInside" id="pJx-qT-E57"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rym-m9-46y">
+                                <rect key="frame" x="497" y="456" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="7Bk-UY-r6z" kind="show" identifier="detailImage" id="vug-za-EPZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -75,11 +116,8 @@
                     <tabBarItem key="tabBarItem" title="Item" id="n1v-tI-XJP"/>
                     <navigationItem key="navigationItem" id="w4z-3p-krE"/>
                     <connections>
-                        <outlet property="ParseView" destination="XWl-bu-QmG" id="pex-9v-7pv"/>
                         <outlet property="cameraButton" destination="SvK-lO-nvW" id="Fce-Up-F7e"/>
                         <outlet property="photoButton" destination="hWt-hi-tUr" id="sqc-Fm-OZf"/>
-                        <outlet property="submit" destination="zjh-Og-Hv7" id="eZH-Xf-Y5d"/>
-                        <outlet property="text" destination="PZV-pn-1Cv" id="OhY-yj-hwG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ns-o3-3Mm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -106,12 +144,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWc-Pw-AUu">
-                                <rect key="frame" x="16" y="505" width="183" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mit-dQ-RQa">
                                 <rect key="frame" x="16" y="475" width="94" height="30"/>
                                 <state key="normal" title="Submit Photo">
@@ -121,14 +153,23 @@
                                     <action selector="submitPhoto:" destination="7Bk-UY-r6z" eventType="touchUpInside" id="fnE-kU-OSV"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Use Location?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kl-EH-eHR">
+                                <rect key="frame" x="217" y="505" width="111" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YIh-sH-aSU">
+                                <rect key="frame" x="336" y="500" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="eY7-Pm-ENc"/>
                     <connections>
-                        <outlet property="descriptionLabel" destination="wWc-Pw-AUu" id="CpT-vx-bRK"/>
                         <outlet property="image" destination="Bkq-Nj-vhc" id="lpx-df-ode"/>
                         <outlet property="submitButton" destination="Mit-dQ-RQa" id="rpF-dM-LKa"/>
+                        <outlet property="tagsTextBox" destination="gGh-z2-ttE" id="ZdS-WS-id9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGT-Y7-k1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -152,10 +193,10 @@
             </objects>
             <point key="canvasLocation" x="-764" y="-4954"/>
         </scene>
-        <!--Item-->
+        <!--Facebook Login-->
         <scene sceneID="NPL-8z-z0p">
             <objects>
-                <viewController id="NSA-5C-k12" customClass="LoginViewController" customModule="Head2Toe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Facebook Login" id="NSA-5C-k12" customClass="LoginViewController" customModule="Head2Toe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j4O-6F-okU"/>
                         <viewControllerLayoutGuide type="bottom" id="W1I-lh-IJB"/>
@@ -174,11 +215,12 @@
                     <tabBarItem key="tabBarItem" title="Item" id="XBN-M3-NA9"/>
                     <connections>
                         <outlet property="fbLoginView" destination="aH7-Te-QYg" id="VkK-Wd-jbf"/>
+                        <segue destination="Upb-wU-emk" kind="showDetail" identifier="HomeSegue" id="N6i-90-iC5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Njt-SW-ATp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-348" y="-3381"/>
+            <point key="canvasLocation" x="-2210" y="-4367"/>
         </scene>
         <!--Item-->
         <scene sceneID="To2-ZV-r5T">

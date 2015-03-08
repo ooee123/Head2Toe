@@ -37,9 +37,7 @@ class LocationController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        println("Inside location delegate")
         let lastLocation = locations.last as CLLocation
-        println("Inside")
         latitude.text = "Latitude: \(lastLocation.coordinate.latitude)"
         longitude.text = "Latitude: \(lastLocation.coordinate.longitude)"
         let geocoder = CLGeocoder()

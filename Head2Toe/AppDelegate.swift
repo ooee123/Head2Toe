@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as UITabBarController
+        let splitViewController = self.window!.rootViewController as LoginViewController
         
         Parse.enableLocalDatastore()
         Parse.setApplicationId("0Feg8ESCxPhQiliWdyjAc8XGYyH1wrEmFJ3QXLVU", clientKey: "byg4s8jBmti8CW263m9cHiUm9az0tTLqGIiDOhAk")
