@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var photoButton: UIButton!
     @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var userID : String! = ""
     
@@ -21,6 +22,7 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             cameraButton.hidden = true
         }
+        searchBar.delegate = self
         // Do any additional setup after loading the view.
         self.userID = (tabBarController as HomePageTabBarController).user!.objectID
     }
@@ -45,11 +47,20 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
             dismissViewControllerAnimated(false, completion: {() -> Void in
             self.performSegueWithIdentifier("detailImage", sender: image)
-            //self.presentViewController(DetailViewController(), animated: true, completion: nil)
-            //    self.performSegueWithIdentifier(<#identifier: String?#>, sender: <#AnyObject?#>)
         })
     }
 
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        let tokens = searchBar.text.componentsSeparatedByString(" ")
+        let q = PFQuery(className: "Outfit")
+        q.whereKey("tags", containsAllObjectsInArray: tokens)
+        q.findObjectsInBackgroundWithBlock { (results: [AnyObject]!, error: NSError!) -> Void in
+            for r in results {
+                println(r.objectID)
+            }
+        }
+        //performSegueWithIdentifier(<#identifier: String?#>, sender: <#AnyObject?#>)
+    }
     
     // MARK: - Navigation
 

@@ -15,6 +15,7 @@ class OutfitsCollectionViewController: UICollectionViewController {
 
     var userID : String = ""
     var selected : [AnyObject] = []
+    var refImageIDs : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,6 @@ class OutfitsCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //#warning Incomplete method implementation -- Return the number of items in the section
         
-        var tagggs = PFQuery(className: "Tags").findObjects()
         var query = PFQuery(className: "Outfit")
         query.whereKey("userID", equalTo: userID)
         

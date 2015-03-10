@@ -39,22 +39,21 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         var photoData = UIImagePNGRepresentation(imageObj)
         var photoFile = PFFile(name: "photo.png", data: photoData)
         photoFile.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
-            var tags : [String] = []
-            var separatedTags = self.tagsTextBox.text.componentsSeparatedByString(",")
-            for t in separatedTags {
-                tags.append(t.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: " ")))
-            }
+            var tags = self.tagsTextBox.text.componentsSeparatedByString(" ")
             var photoObject = PFObject(className: "Outfit")
             photoObject["userID"] = self.userID
             photoObject["photo"] = photoFile
+            photoObject["tags"] = tags
             photoObject.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
                 if (success) {
+                    /*
                     for t in tags {
                         var tagsObject = PFObject(className: "Tags")
                         tagsObject["refImageID"] = photoObject.objectId
                         tagsObject["tags"] = t
                         tagsObject.saveInBackgroundWithBlock(nil)
                     }
+*/
                 }
                 else {
                     println(error.localizedDescription)

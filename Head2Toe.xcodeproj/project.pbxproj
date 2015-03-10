@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		950A19151AAB9CE30090B1D8 /* OutfitsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A19141AAB9CE30090B1D8 /* OutfitsCollectionViewController.swift */; };
+		9513634A1AABEF9000AE22BB /* ParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951363491AABEF9000AE22BB /* ParseViewController.swift */; };
 		95362D0A1A96EC4E000A38CD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95362D091A96EC4E000A38CD /* FacebookSDK.framework */; };
 		95362D0C1A96ECD0000A38CD /* Main.Storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95362D0B1A96ECD0000A38CD /* Main.Storyboard */; };
-		95362D0E1A96F28B000A38CD /* ParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95362D0D1A96F28B000A38CD /* ParseViewController.swift */; };
 		95362D101A9724BD000A38CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95362D0F1A9724BD000A38CD /* CameraViewController.swift */; };
 		956D494C1A9AFD390011ECDE /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956D494B1A9AFD390011ECDE /* LocationController.swift */; };
 		9570A6C01AABA17100E64ABB /* OutfitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570A6BF1AABA17100E64ABB /* OutfitCollectionViewCell.swift */; };
@@ -49,9 +49,9 @@
 
 /* Begin PBXFileReference section */
 		950A19141AAB9CE30090B1D8 /* OutfitsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutfitsCollectionViewController.swift; sourceTree = "<group>"; };
+		951363491AABEF9000AE22BB /* ParseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseViewController.swift; sourceTree = "<group>"; };
 		95362D091A96EC4E000A38CD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		95362D0B1A96ECD0000A38CD /* Main.Storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.Storyboard; sourceTree = "<group>"; };
-		95362D0D1A96F28B000A38CD /* ParseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseViewController.swift; sourceTree = "<group>"; };
 		95362D0F1A9724BD000A38CD /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		956D494B1A9AFD390011ECDE /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationController.swift; path = ../LocationController.swift; sourceTree = "<group>"; };
 		9570A6BF1AABA17100E64ABB /* OutfitCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutfitCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -156,6 +156,7 @@
 		95FBD4461A95340A006AB5D0 /* Head2Toe */ = {
 			isa = PBXGroup;
 			children = (
+				951363491AABEF9000AE22BB /* ParseViewController.swift */,
 				9570A6BF1AABA17100E64ABB /* OutfitCollectionViewCell.swift */,
 				95FBD46E1A956856006AB5D0 /* Bolts.framework */,
 				95FBD46F1A956856006AB5D0 /* Parse.framework */,
@@ -168,7 +169,6 @@
 				9570A6C11AABB45B00E64ABB /* HomePageTabBarController.swift */,
 				950A19141AAB9CE30090B1D8 /* OutfitsCollectionViewController.swift */,
 				95FBD44D1A95340A006AB5D0 /* DetailViewController.swift */,
-				95362D0D1A96F28B000A38CD /* ParseViewController.swift */,
 				95FBD4521A95340A006AB5D0 /* Images.xcassets */,
 				95FBD4541A95340A006AB5D0 /* LaunchScreen.xib */,
 				95FBD4471A95340A006AB5D0 /* Supporting Files */,
@@ -251,7 +251,7 @@
 				TargetAttributes = {
 					95FBD4431A95340A006AB5D0 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = AW7AKNL7YJ;
+						DevelopmentTeam = PY9957M84G;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -317,11 +317,11 @@
 				950A19151AAB9CE30090B1D8 /* OutfitsCollectionViewController.swift in Sources */,
 				9570A6C01AABA17100E64ABB /* OutfitCollectionViewCell.swift in Sources */,
 				A437C0691A9AD3DB002E4A18 /* LoginViewController.swift in Sources */,
+				9513634A1AABEF9000AE22BB /* ParseViewController.swift in Sources */,
 				95FBD44E1A95340A006AB5D0 /* DetailViewController.swift in Sources */,
 				9570A6C21AABB45C00E64ABB /* HomePageTabBarController.swift in Sources */,
 				95FBD44C1A95340A006AB5D0 /* MasterViewController.swift in Sources */,
 				95FBD44A1A95340A006AB5D0 /* AppDelegate.swift in Sources */,
-				95362D0E1A96F28B000A38CD /* ParseViewController.swift in Sources */,
 				95362D101A9724BD000A38CD /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +441,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Head2Toe",
@@ -451,6 +452,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Head2Toe/Head2Toe-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -462,6 +464,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Head2Toe",
@@ -472,6 +475,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Head2Toe/Head2Toe-Bridging-Header.h";
 			};
 			name = Release;

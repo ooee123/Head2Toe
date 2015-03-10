@@ -13,7 +13,6 @@ class OutfitCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
         {
         didSet {
-            println("changed")
             imageView.image = image
         }
     }
@@ -21,7 +20,6 @@ class OutfitCollectionViewCell: UICollectionViewCell {
     var image : UIImage? = nil
         {
         didSet {
-            println("did set")
             imageView?.image = image
         }
     }

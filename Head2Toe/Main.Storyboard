@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Item-->
@@ -108,6 +110,10 @@
                                     <segue destination="7Bk-UY-r6z" kind="show" identifier="detailImage" id="vug-za-EPZ"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XSt-Ea-oEE">
+                                <rect key="frame" x="0.0" y="200" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -116,9 +122,19 @@
                     <connections>
                         <outlet property="cameraButton" destination="SvK-lO-nvW" id="Fce-Up-F7e"/>
                         <outlet property="photoButton" destination="hWt-hi-tUr" id="sqc-Fm-OZf"/>
+                        <outlet property="searchBar" destination="XSt-Ea-oEE" id="b5k-Sd-5e2"/>
+                        <outlet property="searchDisplayController" destination="N6B-LJ-U5P" id="dQU-Em-wz6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ns-o3-3Mm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="N6B-LJ-U5P">
+                    <connections>
+                        <outlet property="delegate" destination="LLn-im-twY" id="myc-80-T6H"/>
+                        <outlet property="searchContentsController" destination="LLn-im-twY" id="fcr-KN-hZl"/>
+                        <outlet property="searchResultsDataSource" destination="LLn-im-twY" id="JC1-lY-ovc"/>
+                        <outlet property="searchResultsDelegate" destination="LLn-im-twY" id="TwE-ey-rJw"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-464" y="-4231"/>
         </scene>
@@ -134,15 +150,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bkq-Nj-vhc">
-                                <rect key="frame" x="0.0" y="64" width="600" height="365"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bkq-Nj-vhc">
+                                <rect key="frame" x="0.0" y="51" width="600" height="378"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="288" id="g81-6j-0Nb"/>
+                                    <constraint firstAttribute="width" secondItem="Bkq-Nj-vhc" secondAttribute="height" multiplier="120:73" id="gf8-wd-9v6"/>
+                                    <constraint firstAttribute="width" secondItem="Bkq-Nj-vhc" secondAttribute="height" multiplier="120:73" id="iyR-11-EBy"/>
+                                    <constraint firstAttribute="width" secondItem="Bkq-Nj-vhc" secondAttribute="height" multiplier="473:288" id="ugu-Ig-TqN"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="g81-6j-0Nb"/>
+                                        <exclude reference="gf8-wd-9v6"/>
+                                        <exclude reference="iyR-11-EBy"/>
+                                        <exclude reference="ugu-Ig-TqN"/>
+                                    </mask>
+                                </variation>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Insert Tags Here" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGh-z2-ttE">
-                                <rect key="frame" x="16" y="437" width="360" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mit-dQ-RQa">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mit-dQ-RQa">
                                 <rect key="frame" x="16" y="475" width="94" height="30"/>
                                 <state key="normal" title="Submit Photo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,17 +176,47 @@
                                     <action selector="submitPhoto:" destination="7Bk-UY-r6z" eventType="touchUpInside" id="fnE-kU-OSV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Use Location?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kl-EH-eHR">
-                                <rect key="frame" x="217" y="505" width="111" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Use Location?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kl-EH-eHR">
+                                <rect key="frame" x="416" y="475" width="111" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YIh-sH-aSU">
-                                <rect key="frame" x="336" y="500" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YIh-sH-aSU">
+                                <rect key="frame" x="535" y="469" width="51" height="31"/>
                             </switch>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Insert Tags Here" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGh-z2-ttE">
+                                <rect key="frame" x="16" y="437" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="gGh-z2-ttE" secondAttribute="centerX" id="0OM-qw-jGE"/>
+                            <constraint firstAttribute="centerX" secondItem="Bkq-Nj-vhc" secondAttribute="centerX" id="AIX-EX-hlP"/>
+                            <constraint firstItem="gGh-z2-ttE" firstAttribute="trailing" secondItem="YIh-sH-aSU" secondAttribute="trailing" id="DqW-uS-FjH"/>
+                            <constraint firstItem="YIh-sH-aSU" firstAttribute="top" secondItem="gGh-z2-ttE" secondAttribute="bottom" constant="7" id="Nz9-Fy-4oi"/>
+                            <constraint firstItem="k3K-2q-HDz" firstAttribute="top" secondItem="Bkq-Nj-vhc" secondAttribute="bottom" constant="122" id="PYJ-gu-NpJ"/>
+                            <constraint firstItem="YIh-sH-aSU" firstAttribute="leading" secondItem="5Kl-EH-eHR" secondAttribute="trailing" constant="8" id="Pzc-Sd-BNK"/>
+                            <constraint firstItem="gGh-z2-ttE" firstAttribute="leading" secondItem="Mit-dQ-RQa" secondAttribute="leading" constant="-10" id="TRD-Er-jnD"/>
+                            <constraint firstItem="gGh-z2-ttE" firstAttribute="top" secondItem="Bkq-Nj-vhc" secondAttribute="bottom" constant="8" id="eVN-FE-vEc"/>
+                            <constraint firstItem="Mit-dQ-RQa" firstAttribute="top" secondItem="gGh-z2-ttE" secondAttribute="bottom" constant="3" id="jZW-EI-sn7"/>
+                            <constraint firstItem="Bkq-Nj-vhc" firstAttribute="top" secondItem="TUX-lJ-27V" secondAttribute="bottom" id="ol0-Os-OSg"/>
+                            <constraint firstItem="Bkq-Nj-vhc" firstAttribute="leading" secondItem="gGh-z2-ttE" secondAttribute="leading" constant="-16" id="oxi-pF-REg"/>
+                            <constraint firstItem="Bkq-Nj-vhc" firstAttribute="top" secondItem="TUX-lJ-27V" secondAttribute="bottom" id="pnJ-M7-gG5"/>
+                            <constraint firstItem="Bkq-Nj-vhc" firstAttribute="top" secondItem="TUX-lJ-27V" secondAttribute="bottom" id="rxM-K1-Ltb"/>
+                            <constraint firstItem="5Kl-EH-eHR" firstAttribute="top" secondItem="gGh-z2-ttE" secondAttribute="bottom" constant="12" id="stM-XB-fPf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Bkq-Nj-vhc" secondAttribute="trailing" constant="-16" id="wd1-5B-9Tc"/>
+                            <constraint firstItem="Bkq-Nj-vhc" firstAttribute="top" secondItem="TUX-lJ-27V" secondAttribute="bottom" id="woe-Wk-LuQ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="pnJ-M7-gG5"/>
+                                <exclude reference="rxM-K1-Ltb"/>
+                                <exclude reference="woe-Wk-LuQ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="eY7-Pm-ENc"/>
                     <connections>
