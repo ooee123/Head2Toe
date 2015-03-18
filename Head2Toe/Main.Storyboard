@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NSA-5C-k12">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NSA-5C-k12">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -37,6 +37,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="imageView" destination="2YT-uf-8Me" id="kem-tz-lAI"/>
+                                    <segue destination="Kzz-nC-C1D" kind="show" identifier="SingleOutfitSegue" id="km2-Fc-FHk"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -49,7 +50,42 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cof-JR-GEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1452" y="-5157"/>
+            <point key="canvasLocation" x="-632" y="-4643"/>
+        </scene>
+        <!--Outfit Detail View Controller-->
+        <scene sceneID="w49-Ps-hvt">
+            <objects>
+                <viewController id="Kzz-nC-C1D" customClass="OutfitDetailViewController" customModule="Head2Toe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C5l-Pw-tnW"/>
+                        <viewControllerLayoutGuide type="bottom" id="KkM-1W-Npp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Si-oI-kek">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hoz-Ai-4DA">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1l-pc-7Nw">
+                                <rect key="frame" x="16" y="513" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="thumbsUpClicked:" destination="Kzz-nC-C1D" eventType="touchUpInside" id="Pf1-Ef-utd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="uiImage" destination="Hoz-Ai-4DA" id="7f5-aK-sQi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D58-EG-8AH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="39" y="-4643"/>
         </scene>
         <!--Home Page Tab Bar Controller-->
         <scene sceneID="7Pl-fu-uS5">
@@ -136,7 +172,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-464" y="-4231"/>
+            <point key="canvasLocation" x="-388" y="-3502"/>
         </scene>
         <!--Title-->
         <scene sceneID="gE1-sT-gI8">
@@ -227,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGT-Y7-k1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="-4417"/>
+            <point key="canvasLocation" x="271" y="-3502"/>
         </scene>
         <!--Item-->
         <scene sceneID="ckU-Q4-5zb">
@@ -244,7 +280,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOh-e6-Qpl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-764" y="-4954"/>
+            <point key="canvasLocation" x="-1122" y="-3502"/>
         </scene>
         <!--Facebook Login-->
         <scene sceneID="NPL-8z-z0p">
@@ -325,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9F-QZ-8yb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-946" y="-3311"/>
+            <point key="canvasLocation" x="-1782" y="-3497"/>
         </scene>
     </scenes>
 </document>

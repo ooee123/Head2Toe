@@ -8,10 +8,10 @@
 
 import UIKit
 
-let reuseIdentifier = "OutfitCell"
 
 
 class OutfitsCollectionViewController: UICollectionViewController {
+    let reuseIdentifier = "OutfitCell"
 
     var userID : String = ""
     var selected : [AnyObject] = []
@@ -36,15 +36,20 @@ class OutfitsCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if segue.identifier == "SingleOutfitSegue" {
+            let dest = segue.destinationViewController as OutfitDetailViewController
+            let sender = sender as OutfitCollectionViewCell
+            dest.object = sender.object
+        }
     }
-    */
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -67,10 +72,13 @@ class OutfitsCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as OutfitCollectionViewCell
-        println(indexPath.row)
+        //let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
+        /*
         // Configure the cell
         var outfit = selected[indexPath.indexAtPosition(0)] as PFObject
-        cell.image = UIImage(data: (outfit["photo"].getData()))
+        
+        cell.object = outfit
+        */
         return cell
     }
 

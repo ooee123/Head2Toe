@@ -10,17 +10,16 @@ import UIKit
 
 class OutfitCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var imageView: UIImageView!
-        {
+    var object : PFObject = PFObject() {
         didSet {
-            imageView.image = image
+            imageView?.image = UIImage(data: (object["photo"].getData()))
         }
     }
     
-    var image : UIImage? = nil
+    @IBOutlet weak var imageView: UIImageView!
         {
         didSet {
-            imageView?.image = image
+            imageView.image = UIImage(data: (object["photo"].getData()))
         }
     }
 }

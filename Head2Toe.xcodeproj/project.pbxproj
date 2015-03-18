@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		950A19151AAB9CE30090B1D8 /* OutfitsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A19141AAB9CE30090B1D8 /* OutfitsCollectionViewController.swift */; };
 		9513634A1AABEF9000AE22BB /* ParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951363491AABEF9000AE22BB /* ParseViewController.swift */; };
+		952FBF631AB8FBE7005CF1AA /* OutfitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FBF621AB8FBE7005CF1AA /* OutfitDetailViewController.swift */; };
 		95362D0A1A96EC4E000A38CD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95362D091A96EC4E000A38CD /* FacebookSDK.framework */; };
 		95362D0C1A96ECD0000A38CD /* Main.Storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95362D0B1A96ECD0000A38CD /* Main.Storyboard */; };
 		95362D101A9724BD000A38CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95362D0F1A9724BD000A38CD /* CameraViewController.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		950A19141AAB9CE30090B1D8 /* OutfitsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutfitsCollectionViewController.swift; sourceTree = "<group>"; };
 		951363491AABEF9000AE22BB /* ParseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseViewController.swift; sourceTree = "<group>"; };
+		952FBF621AB8FBE7005CF1AA /* OutfitDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutfitDetailViewController.swift; path = ../OutfitDetailViewController.swift; sourceTree = "<group>"; };
 		95362D091A96EC4E000A38CD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		95362D0B1A96ECD0000A38CD /* Main.Storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.Storyboard; sourceTree = "<group>"; };
 		95362D0F1A9724BD000A38CD /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		95FBD4461A95340A006AB5D0 /* Head2Toe */ = {
 			isa = PBXGroup;
 			children = (
+				952FBF621AB8FBE7005CF1AA /* OutfitDetailViewController.swift */,
 				951363491AABEF9000AE22BB /* ParseViewController.swift */,
 				9570A6BF1AABA17100E64ABB /* OutfitCollectionViewCell.swift */,
 				95FBD46E1A956856006AB5D0 /* Bolts.framework */,
@@ -322,6 +325,7 @@
 				9570A6C21AABB45C00E64ABB /* HomePageTabBarController.swift in Sources */,
 				95FBD44C1A95340A006AB5D0 /* MasterViewController.swift in Sources */,
 				95FBD44A1A95340A006AB5D0 /* AppDelegate.swift in Sources */,
+				952FBF631AB8FBE7005CF1AA /* OutfitDetailViewController.swift in Sources */,
 				95362D101A9724BD000A38CD /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
