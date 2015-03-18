@@ -12,23 +12,19 @@ import UIKit
 
 class OutfitsCollectionViewController: UICollectionViewController {
     let reuseIdentifier = "OutfitCell"
-
-    var userID : String = ""
-    var selected : [AnyObject] = []
-    var refImageIDs : [String] = []
+    
+    var outfits : [PFObject] = [] {
+        didSet {
+            collectionView?.reloadData()
+        }
+    }
+    //var userID : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         //self.clearsSelectionOnViewWillAppear = false
-        
-        userID = (tabBarController as HomePageTabBarController).user!.objectID
-        
-        // Register cell classes
-        //self.collectionView!.registerClass(OutfitCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,20 +58,14 @@ class OutfitsCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //#warning Incomplete method implementation -- Return the number of items in the section
         
-        var query = PFQuery(className: "Outfit")
-        query.whereKey("userID", equalTo: userID)
-        
-        selected = query.findObjects()
-        
-        return selected.count
+        return outfits.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as OutfitCollectionViewCell
-        //let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
         
         // Configure the cell
-        var outfit = selected[indexPath.row] as PFObject
+        var outfit = outfits[indexPath.row] as PFObject
         
         cell.object = outfit
 

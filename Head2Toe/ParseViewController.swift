@@ -50,17 +50,24 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
         })
     }
 
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         let tokens = searchBar.text.componentsSeparatedByString(" ")
         let q = PFQuery(className: "Outfit")
         q.whereKey("tags", containsAllObjectsInArray: tokens)
         q.findObjectsInBackgroundWithBlock { (results: [AnyObject]!, error: NSError!) -> Void in
+            var outfitObjs : [AnyObject] = []
             for r in results {
-                println(r.objectID)
+                outfitObjs.append(r.objectId)
             }
+            let qu = PFQuery(className: "Outfit")
+            qu.whereKey("objectId", containedIn: outfitObjs)
+            qu.findObjectsInBackgroundWithBlock({ (results: [AnyObject]!, error: NSError!) -> Void in
+                    let res = results as [PFObject]
+                    self.performSegueWithIdentifier("SearchResults", sender: res)
+            })
         }
-        //performSegueWithIdentifier(<#identifier: String?#>, sender: <#AnyObject?#>)
     }
+
     
     // MARK: - Navigation
 
@@ -72,6 +79,11 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
             let detail = segue.destinationViewController as DetailViewController
             detail.userID = userID
             detail.imageObj = sender as UIImage
+        }
+        if segue.identifier == "SearchResults" {
+            let outfits = sender as [PFObject]
+            let dest = segue.destinationViewController as OutfitsCollectionViewController
+            dest.outfits = outfits
         }
     }
 }

@@ -13,7 +13,20 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tagsTextBox: UITextField!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var locationSwitch: UISwitch!
     
+    @IBAction func locationAction(sender: AnyObject) {
+        if let sender = sender as? UISwitch {
+            if sender.on {
+                let location = CLLocationManager()
+                location.desiredAccuracy = 10
+                location.distanceFilter = 1
+                
+                location.startUpdatingLocation()
+            }
+        }
+        
+    }
     var userID : String! = ""
     
     var imageObj : UIImage = UIImage()
@@ -45,6 +58,16 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             photoObject["photo"] = photoFile
             photoObject["tags"] = tags
             photoObject["score"] = 0
+            
+            if self.locationSwitch.on {
+                let coordinate = (UIApplication.sharedApplication().delegate as AppDelegate).coordinate
+                photoObject["location"] = PFGeoPoint(location: coordinate)
+            }
+            else
+            {
+                photoObject["location"] = PFGeoPoint()
+            }
+            
             photoObject.saveInBackgroundWithBlock(nil)
         }
         self.navigationController?.popViewControllerAnimated(true)

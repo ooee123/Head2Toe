@@ -68,7 +68,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cof-JR-GEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-632" y="-4643"/>
+            <point key="canvasLocation" x="-454" y="-3898"/>
         </scene>
         <!--Outfit Detail View Controller-->
         <scene sceneID="w49-Ps-hvt">
@@ -100,10 +100,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sj-34-58k">
+                                <rect key="frame" x="16" y="517" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="tagsLabel" destination="4sj-34-58k" id="u9D-3N-4EV"/>
                         <outlet property="thumbsUpCounter" destination="7ly-hN-swe" id="DQu-WG-FoM"/>
                         <outlet property="uiImage" destination="Hoz-Ai-4DA" id="7f5-aK-sQi"/>
                     </connections>
@@ -185,6 +192,7 @@
                         <outlet property="photoButton" destination="hWt-hi-tUr" id="sqc-Fm-OZf"/>
                         <outlet property="searchBar" destination="XSt-Ea-oEE" id="b5k-Sd-5e2"/>
                         <outlet property="searchDisplayController" destination="N6B-LJ-U5P" id="dQU-Em-wz6"/>
+                        <segue destination="vqA-DN-oUF" kind="show" identifier="SearchResults" id="Lpx-3W-HS2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ns-o3-3Mm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -197,7 +205,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-388" y="-3502"/>
+            <point key="canvasLocation" x="-400" y="-3203"/>
         </scene>
         <!--Title-->
         <scene sceneID="gE1-sT-gI8">
@@ -245,6 +253,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YIh-sH-aSU">
                                 <rect key="frame" x="535" y="469" width="51" height="31"/>
+                                <connections>
+                                    <action selector="locationAction:" destination="7Bk-UY-r6z" eventType="valueChanged" id="IAn-TU-dcF"/>
+                                </connections>
                             </switch>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Insert Tags Here" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGh-z2-ttE">
                                 <rect key="frame" x="16" y="437" width="568" height="30"/>
@@ -282,6 +293,7 @@
                     <navigationItem key="navigationItem" title="Title" id="eY7-Pm-ENc"/>
                     <connections>
                         <outlet property="image" destination="Bkq-Nj-vhc" id="lpx-df-ode"/>
+                        <outlet property="locationSwitch" destination="YIh-sH-aSU" id="VzD-du-bje"/>
                         <outlet property="submitButton" destination="Mit-dQ-RQa" id="rpF-dM-LKa"/>
                         <outlet property="tagsTextBox" destination="gGh-z2-ttE" id="ZdS-WS-id9"/>
                     </connections>
@@ -389,4 +401,7 @@
             <point key="canvasLocation" x="-1782" y="-3497"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Lpx-3W-HS2"/>
+    </inferredMetricsTieBreakers>
 </document>

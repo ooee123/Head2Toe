@@ -36,29 +36,7 @@ class LocationController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        let lastLocation = locations.last as CLLocation
-        latitude.text = "Latitude: \(lastLocation.coordinate.latitude)"
-        longitude.text = "Latitude: \(lastLocation.coordinate.longitude)"
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(lastLocation) {(placemark: [AnyObject]!, error: NSError!) -> Void in
-            if (error == nil) {
-                let mark = placemark.last as CLPlacemark
-                self.landmark.text = mark.name
-                self.longDescription.text = mark.name
-            }
-        }
-    }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("Some error occured")
-        println(error.localizedDescription)
-        println(error.localizedFailureReason)
-    }
-
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        println(status)
-    }
     /*
     // MARK: - Navigation
 

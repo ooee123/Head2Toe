@@ -10,10 +10,11 @@ import UIKit
 import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-
+    var location = CLLocationManager()
+    var coordinate : CLLocation = CLLocation()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,12 +25,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         FBLoginView.self
         FBProfilePictureView.self
+        
+        location.desiredAccuracy = 10
+        location.distanceFilter = 1
+        location.delegate = self
         return true
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: NSString?, annotation: AnyObject) -> Bool {
         var wasHandled:Bool = FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
         return wasHandled
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        coordinate = locations.last as CLLocation
+        
     }
     
     func applicationWillResignActive(application: UIApplication) {

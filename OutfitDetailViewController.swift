@@ -9,12 +9,26 @@
 import UIKit
 
 class OutfitDetailViewController: UIViewController {
+    
     var object : PFObject? = nil {
         didSet {
             if let object = object? {
                 uiImage?.image = UIImage(data: object["photo"].getData())
                 let score = object["score"].intValue
                 thumbsUpCounter?.text = "\(score)"
+                let tags = JSON(object["tags"])
+                let str = tags.arrayObject as [String]
+                tagsLabel?.text = "\(str)"
+            }
+        }
+    }
+    
+    @IBOutlet weak var tagsLabel: UILabel! {
+        didSet {
+            if let object = object? {
+                let tags = JSON(object["tags"])
+                let str = tags.arrayObject as [String]
+                tagsLabel.text = "\(str)"
             }
         }
     }
