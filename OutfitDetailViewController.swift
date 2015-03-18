@@ -14,31 +14,21 @@ class OutfitDetailViewController: UIViewController {
         didSet {
             if let object = object? {
                 uiImage?.image = UIImage(data: object["photo"].getData())
-                let score = object["score"].intValue
-                thumbsUpCounter?.text = "\(score)"
-                let tags = JSON(object["tags"])
-                let str = tags.arrayObject as [String]
-                tagsLabel?.text = "\(str)"
+                updateThumbsUpCount()
+                updateTags()
             }
         }
     }
     
     @IBOutlet weak var tagsLabel: UILabel! {
         didSet {
-            if let object = object? {
-                let tags = JSON(object["tags"])
-                let str = tags.arrayObject as [String]
-                tagsLabel.text = "\(str)"
-            }
+            updateTags()
         }
     }
     
     @IBOutlet weak var thumbsUpCounter: UILabel! {
         didSet {
-            if let object = object? {
-                let score = object["score"].intValue
-                thumbsUpCounter.text = "\(score)"
-            }
+            updateThumbsUpCount()
         }
     }
     @IBOutlet weak var uiImage: UIImageView! {
@@ -55,10 +45,14 @@ class OutfitDetailViewController: UIViewController {
     }
     @IBAction func thumbsUpClicked(sender: AnyObject) {
         if let object = object? {
-            var score = object["score"].integerValue
-            object["score"] = score + 1
-            object.saveInBackgroundWithBlock(nil)
-            self.object = object
+            var likedIDs = JSON(object["likedIDs"]).arrayObject as [String]
+            let userID = (tabBarController as HomePageTabBarController).user?.objectID
+            if !contains(likedIDs, userID!) {
+                likedIDs.append(userID!)
+                object["likedIDs"] = likedIDs
+                updateThumbsUpCount()
+                object.saveInBackgroundWithBlock(nil)
+            }
         }
     }
 
@@ -67,6 +61,20 @@ class OutfitDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func updateThumbsUpCount() {
+        if let object = object? {
+            var likedIDs = JSON(object["likedIDs"]).arrayObject as [String]
+            thumbsUpCounter?.text = "\(likedIDs.count)"
+        }
+    }
+    
+    func updateTags() {
+        if let object = object? {
+            let tags = JSON(object["tags"])
+            let str = tags.arrayObject as [String]
+            tagsLabel?.text = "\(str)"
+        }
+    }
 
     /*
     // MARK: - Navigation

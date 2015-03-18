@@ -10,11 +10,7 @@ import UIKit
 
 class HomePageTabBarController: UITabBarController, UITabBarControllerDelegate {
 
-    var user : FBGraphUser? = nil {
-        didSet {
-            println("Setted")
-        }
-    }
+    var user : FBGraphUser? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +24,10 @@ class HomePageTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
 
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
-        println("Called")
         if let viewController = viewController as? UINavigationController {
             if let v = viewController.viewControllers.first as? OutfitsCollectionViewController {
-                println("Casted Correctly")
                 var query = PFQuery(className: "Outfit")
                 query.whereKey("userID", equalTo: user?.objectID)
-            
                 query.findObjectsInBackgroundWithBlock({ (results: [AnyObject]!, error: NSError!) -> Void in
                     v.outfits = results as [PFObject]
                 })

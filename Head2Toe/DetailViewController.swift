@@ -8,24 +8,23 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UITextFieldDelegate {
+class DetailViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var tagsTextBox: UITextField!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var locationSwitch: UISwitch!
+    @IBOutlet weak var locationNameLabel: UILabel!
     
     @IBAction func locationAction(sender: AnyObject) {
         if let sender = sender as? UISwitch {
             if sender.on {
-                let location = CLLocationManager()
-                location.desiredAccuracy = 10
-                location.distanceFilter = 1
-                
+                let location = (UIApplication.sharedApplication().delegate as AppDelegate).location
+                location.requestWhenInUseAuthorization()
                 location.startUpdatingLocation()
+                location.delegate = self
             }
         }
-        
     }
     var userID : String! = ""
     
@@ -42,6 +41,14 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             self.configureView()
         }
     }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        let loc = locations.last as CLLocation
+        let coder = CLGeocoder()
+        coder.reverseGeocodeLocation(loc, completionHandler: { (locations: [AnyObject]!, error: NSError!) -> Void in
+            self.locationNameLabel.text = (locations.first as CLPlacemark).locality
+        })
+    }
 
     func configureView() {
         // Update the user interface for the detail item.
@@ -53,21 +60,22 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         var photoFile = PFFile(name: "photo.png", data: photoData)
         photoFile.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
             var tags = self.tagsTextBox.text.componentsSeparatedByString(" ")
+            tags = tags.map({ (s: String) -> String in
+                return s.lowercaseString
+            })
             var photoObject = PFObject(className: "Outfit")
             photoObject["userID"] = self.userID
             photoObject["photo"] = photoFile
             photoObject["tags"] = tags
-            photoObject["score"] = 0
+            
+            photoObject["likedIDs"] = []
             
             if self.locationSwitch.on {
+                
                 let coordinate = (UIApplication.sharedApplication().delegate as AppDelegate).coordinate
                 photoObject["location"] = PFGeoPoint(location: coordinate)
+                (UIApplication.sharedApplication().delegate as AppDelegate).location.stopUpdatingLocation()
             }
-            else
-            {
-                photoObject["location"] = PFGeoPoint()
-            }
-            
             photoObject.saveInBackgroundWithBlock(nil)
         }
         self.navigationController?.popViewControllerAnimated(true)

@@ -51,7 +51,10 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        let tokens = searchBar.text.componentsSeparatedByString(" ")
+        var tokens = searchBar.text.componentsSeparatedByString(" ")
+        tokens = tokens.map({ (s: String) -> String in
+            return s.lowercaseString
+        })
         let q = PFQuery(className: "Outfit")
         q.whereKey("tags", containsAllObjectsInArray: tokens)
         q.findObjectsInBackgroundWithBlock { (results: [AnyObject]!, error: NSError!) -> Void in

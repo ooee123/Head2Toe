@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate, CLLocationManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
     var location = CLLocationManager()
@@ -39,7 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         coordinate = locations.last as CLLocation
-        
+        println("Location Updated")
+        println(coordinate)
     }
     
     func applicationWillResignActive(application: UIApplication) {
@@ -64,20 +65,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-    // MARK: - Split view
-
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController!, ontoPrimaryViewController primaryViewController:UIViewController!) -> Bool {
-        if let secondaryAsNavController = secondaryViewController as? UINavigationController {
-            if let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController {
-                if topAsDetailController.detailItem == nil {
-                    // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-                    return true
-                }
-            }
-        }
-        return false
-    }
-
 }
 

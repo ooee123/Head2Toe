@@ -18,7 +18,6 @@ class OutfitsCollectionViewController: UICollectionViewController {
             collectionView?.reloadData()
         }
     }
-    //var userID : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

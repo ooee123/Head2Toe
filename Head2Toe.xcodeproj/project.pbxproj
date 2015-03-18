@@ -9,16 +9,15 @@
 /* Begin PBXBuildFile section */
 		950A19151AAB9CE30090B1D8 /* OutfitsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A19141AAB9CE30090B1D8 /* OutfitsCollectionViewController.swift */; };
 		9513634A1AABEF9000AE22BB /* ParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951363491AABEF9000AE22BB /* ParseViewController.swift */; };
+		952BDD7C1ABA2E9E004A25FD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952BDD7B1ABA2E9E004A25FD /* MapKit.framework */; };
 		952FBF631AB8FBE7005CF1AA /* OutfitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FBF621AB8FBE7005CF1AA /* OutfitDetailViewController.swift */; };
 		95362D0A1A96EC4E000A38CD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95362D091A96EC4E000A38CD /* FacebookSDK.framework */; };
 		95362D0C1A96ECD0000A38CD /* Main.Storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95362D0B1A96ECD0000A38CD /* Main.Storyboard */; };
 		95362D101A9724BD000A38CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95362D0F1A9724BD000A38CD /* CameraViewController.swift */; };
-		956D494C1A9AFD390011ECDE /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956D494B1A9AFD390011ECDE /* LocationController.swift */; };
 		9570A6C01AABA17100E64ABB /* OutfitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570A6BF1AABA17100E64ABB /* OutfitCollectionViewCell.swift */; };
 		9570A6C21AABB45C00E64ABB /* HomePageTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570A6C11AABB45B00E64ABB /* HomePageTabBarController.swift */; };
 		9583C6461ABA2AAF00A57A4F /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583C6451ABA2AAF00A57A4F /* SwiftyJSON.swift */; };
 		95FBD44A1A95340A006AB5D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBD4491A95340A006AB5D0 /* AppDelegate.swift */; };
-		95FBD44C1A95340A006AB5D0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBD44B1A95340A006AB5D0 /* MasterViewController.swift */; };
 		95FBD44E1A95340A006AB5D0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FBD44D1A95340A006AB5D0 /* DetailViewController.swift */; };
 		95FBD4531A95340A006AB5D0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FBD4521A95340A006AB5D0 /* Images.xcassets */; };
 		95FBD4561A95340A006AB5D0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95FBD4541A95340A006AB5D0 /* LaunchScreen.xib */; };
@@ -52,18 +51,17 @@
 /* Begin PBXFileReference section */
 		950A19141AAB9CE30090B1D8 /* OutfitsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutfitsCollectionViewController.swift; sourceTree = "<group>"; };
 		951363491AABEF9000AE22BB /* ParseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseViewController.swift; sourceTree = "<group>"; };
+		952BDD7B1ABA2E9E004A25FD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		952FBF621AB8FBE7005CF1AA /* OutfitDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutfitDetailViewController.swift; path = ../OutfitDetailViewController.swift; sourceTree = "<group>"; };
 		95362D091A96EC4E000A38CD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		95362D0B1A96ECD0000A38CD /* Main.Storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.Storyboard; sourceTree = "<group>"; };
 		95362D0F1A9724BD000A38CD /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		956D494B1A9AFD390011ECDE /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationController.swift; path = ../LocationController.swift; sourceTree = "<group>"; };
 		9570A6BF1AABA17100E64ABB /* OutfitCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutfitCollectionViewCell.swift; sourceTree = "<group>"; };
 		9570A6C11AABB45B00E64ABB /* HomePageTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageTabBarController.swift; sourceTree = "<group>"; };
 		9583C6451ABA2AAF00A57A4F /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = ../../proj/GradebookExample/SwiftyJSON.swift; sourceTree = "<group>"; };
 		95FBD4441A95340A006AB5D0 /* Head2Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Head2Toe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FBD4481A95340A006AB5D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95FBD4491A95340A006AB5D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		95FBD44B1A95340A006AB5D0 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		95FBD44D1A95340A006AB5D0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		95FBD4521A95340A006AB5D0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		95FBD4551A95340A006AB5D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -99,6 +97,7 @@
 				95FBD4831A9568AF006AB5D0 /* SystemConfiguration.framework in Frameworks */,
 				95FBD47F1A9568A3006AB5D0 /* Security.framework in Frameworks */,
 				95FBD47D1A956898006AB5D0 /* QuartzCore.framework in Frameworks */,
+				952BDD7C1ABA2E9E004A25FD /* MapKit.framework in Frameworks */,
 				95FBD47B1A95688E006AB5D0 /* MobileCoreServices.framework in Frameworks */,
 				95FBD4771A956882006AB5D0 /* CoreGraphics.framework in Frameworks */,
 				95FBD4751A95687D006AB5D0 /* CFNetwork.framework in Frameworks */,
@@ -122,6 +121,7 @@
 		95362D081A96EBC4000A38CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				952BDD7B1ABA2E9E004A25FD /* MapKit.framework */,
 				A437C1AB1A9CF59B002E4A18 /* StoreKit.framework */,
 				95362D091A96EC4E000A38CD /* FacebookSDK.framework */,
 			);
@@ -168,8 +168,6 @@
 				95FBD4491A95340A006AB5D0 /* AppDelegate.swift */,
 				95362D0F1A9724BD000A38CD /* CameraViewController.swift */,
 				A437C0681A9AD3DB002E4A18 /* LoginViewController.swift */,
-				95FBD44B1A95340A006AB5D0 /* MasterViewController.swift */,
-				956D494B1A9AFD390011ECDE /* LocationController.swift */,
 				95362D0B1A96ECD0000A38CD /* Main.Storyboard */,
 				9583C6451ABA2AAF00A57A4F /* SwiftyJSON.swift */,
 				9570A6C11AABB45B00E64ABB /* HomePageTabBarController.swift */,
@@ -263,7 +261,7 @@
 								enabled = 0;
 							};
 							com.apple.Maps.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -319,7 +317,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				956D494C1A9AFD390011ECDE /* LocationController.swift in Sources */,
 				950A19151AAB9CE30090B1D8 /* OutfitsCollectionViewController.swift in Sources */,
 				9570A6C01AABA17100E64ABB /* OutfitCollectionViewCell.swift in Sources */,
 				9583C6461ABA2AAF00A57A4F /* SwiftyJSON.swift in Sources */,
@@ -327,7 +324,6 @@
 				9513634A1AABEF9000AE22BB /* ParseViewController.swift in Sources */,
 				95FBD44E1A95340A006AB5D0 /* DetailViewController.swift in Sources */,
 				9570A6C21AABB45C00E64ABB /* HomePageTabBarController.swift in Sources */,
-				95FBD44C1A95340A006AB5D0 /* MasterViewController.swift in Sources */,
 				95FBD44A1A95340A006AB5D0 /* AppDelegate.swift in Sources */,
 				952FBF631AB8FBE7005CF1AA /* OutfitDetailViewController.swift in Sources */,
 				95362D101A9724BD000A38CD /* CameraViewController.swift in Sources */,
