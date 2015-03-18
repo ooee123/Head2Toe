@@ -44,22 +44,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             photoObject["userID"] = self.userID
             photoObject["photo"] = photoFile
             photoObject["tags"] = tags
-            photoObject.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
-                if (success) {
-                    /*
-                    for t in tags {
-                        var tagsObject = PFObject(className: "Tags")
-                        tagsObject["refImageID"] = photoObject.objectId
-                        tagsObject["tags"] = t
-                        tagsObject.saveInBackgroundWithBlock(nil)
-                    }
-*/
-                }
-                else {
-                    println(error.localizedDescription)
-                    println("Failure")
-                }
-            }
+            photoObject["score"] = 0
+            photoObject.saveInBackgroundWithBlock(nil)
         }
         self.navigationController?.popViewControllerAnimated(true)
     }

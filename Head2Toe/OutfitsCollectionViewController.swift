@@ -46,7 +46,7 @@ class OutfitsCollectionViewController: UICollectionViewController {
         if segue.identifier == "SingleOutfitSegue" {
             let dest = segue.destinationViewController as OutfitDetailViewController
             let sender = sender as OutfitCollectionViewCell
-            dest.object = sender.object
+            dest.object = sender.object!
         }
     }
     
@@ -73,12 +73,12 @@ class OutfitsCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as OutfitCollectionViewCell
         //let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
-        /*
+        
         // Configure the cell
         var outfit = selected[indexPath.indexAtPosition(0)] as PFObject
         
         cell.object = outfit
-        */
+
         return cell
     }
 

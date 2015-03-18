@@ -9,22 +9,32 @@
 import UIKit
 
 class OutfitDetailViewController: UIViewController {
-    var object : PFObject = PFObject() {
+    var object : PFObject? = nil {
         didSet {
-            uiImage.image = UIImage(data: (object["photo"].getData()))
+            if let object = object? {
+                uiImage?.image = UIImage(data: object["photo"].getData())
+            }
         }
     }
     
-    @IBOutlet weak var uiImage: UIImageView!
+    @IBOutlet weak var uiImage: UIImageView! {
+        didSet {
+            if let object = object? {
+                uiImage.image = UIImage(data: object["photo"].getData())
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     @IBAction func thumbsUpClicked(sender: AnyObject) {
-        var score = object["score"].integerValue
-        object["score"] = score + 1
-        object.saveInBackgroundWithBlock(nil)
+        if let object = object? {
+            var score = object["score"].integerValue
+            object["score"] = score + 1
+            object.saveInBackgroundWithBlock(nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
