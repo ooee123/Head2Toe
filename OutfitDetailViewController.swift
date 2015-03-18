@@ -13,10 +13,20 @@ class OutfitDetailViewController: UIViewController {
         didSet {
             if let object = object? {
                 uiImage?.image = UIImage(data: object["photo"].getData())
+                let score = object["score"].intValue
+                thumbsUpCounter?.text = "\(score)"
             }
         }
     }
     
+    @IBOutlet weak var thumbsUpCounter: UILabel! {
+        didSet {
+            if let object = object? {
+                let score = object["score"].intValue
+                thumbsUpCounter.text = "\(score)"
+            }
+        }
+    }
     @IBOutlet weak var uiImage: UIImageView! {
         didSet {
             if let object = object? {
@@ -34,6 +44,7 @@ class OutfitDetailViewController: UIViewController {
             var score = object["score"].integerValue
             object["score"] = score + 1
             object.saveInBackgroundWithBlock(nil)
+            self.object = object
         }
     }
 

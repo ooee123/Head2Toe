@@ -8,6 +8,23 @@
     </dependencies>
     <scenes>
         <!--Item-->
+        <scene sceneID="7ZV-fn-BAJ">
+            <objects>
+                <navigationController id="R1L-vp-iPf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="xEr-aA-LO9"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fpL-f1-MaB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vqA-DN-oUF" kind="relationship" relationship="rootViewController" id="8Fu-gs-ls2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eYw-5A-seu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1452" y="-5138"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="RKf-5V-zCh">
             <objects>
                 <collectionViewController id="vqA-DN-oUF" customClass="OutfitsCollectionViewController" customModule="Head2Toe" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,6 +64,7 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Item" id="Ubs-qy-JGT"/>
+                    <navigationItem key="navigationItem" id="6T6-0e-A1w"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cof-JR-GEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,21 +83,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hoz-Ai-4DA">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1l-pc-7Nw">
-                                <rect key="frame" x="16" y="513" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="16" y="414" width="80" height="30"/>
+                                <state key="normal" title="Thumbs Up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="thumbsUpClicked:" destination="Kzz-nC-C1D" eventType="touchUpInside" id="Pf1-Ef-utd"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ly-hN-swe">
+                                <rect key="frame" x="104" y="418" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="thumbsUpCounter" destination="7ly-hN-swe" id="DQu-WG-FoM"/>
                         <outlet property="uiImage" destination="Hoz-Ai-4DA" id="7f5-aK-sQi"/>
                     </connections>
                 </viewController>
@@ -100,7 +125,7 @@
                     <connections>
                         <segue destination="eqM-GZ-h9C" kind="relationship" relationship="viewControllers" id="alN-6J-mA5"/>
                         <segue destination="ktC-eM-j9w" kind="relationship" relationship="viewControllers" id="pcQ-qe-urG"/>
-                        <segue destination="vqA-DN-oUF" kind="relationship" relationship="viewControllers" id="TKO-hM-SBZ"/>
+                        <segue destination="R1L-vp-iPf" kind="relationship" relationship="viewControllers" id="Os4-1J-b1t"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ubi-0z-K2f" userLabel="First Responder" sceneMemberID="firstResponder"/>

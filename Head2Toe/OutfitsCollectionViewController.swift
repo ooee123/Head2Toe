@@ -75,7 +75,7 @@ class OutfitsCollectionViewController: UICollectionViewController {
         //let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
         
         // Configure the cell
-        var outfit = selected[indexPath.indexAtPosition(0)] as PFObject
+        var outfit = selected[indexPath.row] as PFObject
         
         cell.object = outfit
 
