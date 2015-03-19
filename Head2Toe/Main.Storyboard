@@ -7,27 +7,27 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Your Profile-->
         <scene sceneID="7ZV-fn-BAJ">
             <objects>
-                <navigationController id="R1L-vp-iPf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xEr-aA-LO9"/>
+                <navigationController title="Your Profile" id="R1L-vp-iPf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Your Profile" id="xEr-aA-LO9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fpL-f1-MaB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vqA-DN-oUF" kind="relationship" relationship="rootViewController" id="8Fu-gs-ls2"/>
+                        <segue destination="cmu-c0-Eq9" kind="relationship" relationship="rootViewController" id="QnO-kC-u0B"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYw-5A-seu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1452" y="-5138"/>
         </scene>
-        <!--Item-->
+        <!--Outfits-->
         <scene sceneID="RKf-5V-zCh">
             <objects>
-                <collectionViewController id="vqA-DN-oUF" customClass="OutfitsCollectionViewController" customModule="Head2Toe" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Outfits" id="vqA-DN-oUF" customClass="OutfitsCollectionViewController" customModule="Head2Toe" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="xfH-AY-aUR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,11 +64,23 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Item" id="Ubs-qy-JGT"/>
-                    <navigationItem key="navigationItem" id="6T6-0e-A1w"/>
+                    <navigationItem key="navigationItem" id="6T6-0e-A1w">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pPw-Ve-8C2">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Take New Outfit / Search">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <segue destination="LLn-im-twY" kind="show" id="mVE-kT-Hfx"/>
+                            </connections>
+                        </button>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cof-JR-GEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-454" y="-3898"/>
+            <point key="canvasLocation" x="-505" y="-4376"/>
         </scene>
         <!--Outfit Detail View Controller-->
         <scene sceneID="w49-Ps-hvt">
@@ -117,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D58-EG-8AH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="39" y="-4643"/>
+            <point key="canvasLocation" x="353" y="-4302"/>
         </scene>
         <!--Home Page Tab Bar Controller-->
         <scene sceneID="7Pl-fu-uS5">
@@ -137,6 +149,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ubi-0z-K2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1452" y="-4367"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="nIz-im-2wT">
+            <objects>
+                <viewController id="cmu-c0-Eq9" customClass="ProfileViewController" customModule="Head2Toe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wce-xv-5pB"/>
+                        <viewControllerLayoutGuide type="bottom" id="qkQ-HE-wNB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BkE-Ld-74a">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g0d-ra-kIu">
+                                <rect key="frame" x="8" y="72" width="254" height="257"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTU-xq-hcj">
+                                <rect key="frame" x="270" y="159" width="46" height="30"/>
+                                <state key="normal" title="Outfits">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="userOutfitsClicked:" destination="cmu-c0-Eq9" eventType="touchUpInside" id="vGt-gR-VCw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIm-ZY-wVm">
+                                <rect key="frame" x="270" y="92" width="205" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSZ-Nj-xXQ">
+                                <rect key="frame" x="270" y="121" width="51" height="30"/>
+                                <state key="normal" title="Friends">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="osc-8p-vQS" kind="show" identifier="FriendsListSegue" id="O8K-it-zDi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MN5-uL-r3r"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="WIm-ZY-wVm" id="PU9-93-uv9"/>
+                        <outlet property="profilePictureView" destination="g0d-ra-kIu" id="ljs-QA-l3F"/>
+                        <segue destination="vqA-DN-oUF" kind="show" identifier="OutfitCollectionSegue" id="BWy-gl-2XO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s6k-2c-SBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-730" y="-5138"/>
+        </scene>
+        <!--Friends List Table View Controller-->
+        <scene sceneID="RPi-iK-0PV">
+            <objects>
+                <tableViewController id="osc-8p-vQS" customClass="FriendsListTableViewController" customModule="Head2Toe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="K4H-GO-PJX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" textLabel="Moa-5V-66K" style="IBUITableViewCellStyleDefault" id="yUg-26-bEf">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yUg-26-bEf" id="Yh6-sS-8SM">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Moa-5V-66K">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="cmu-c0-Eq9" kind="show" identifier="ProfileSegue" id="sDG-Rv-8hm"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="osc-8p-vQS" id="StL-dU-N6a"/>
+                            <outlet property="delegate" destination="osc-8p-vQS" id="oQU-nr-wPB"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z7m-va-9Kp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85" y="-5138"/>
         </scene>
         <!--Item-->
         <scene sceneID="viA-nF-foM">
@@ -168,15 +270,6 @@
                                     <action selector="useCamera:" destination="LLn-im-twY" eventType="touchUpInside" id="pJx-qT-E57"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rym-m9-46y">
-                                <rect key="frame" x="497" y="456" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="7Bk-UY-r6z" kind="show" identifier="detailImage" id="vug-za-EPZ"/>
-                                </connections>
-                            </button>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XSt-Ea-oEE">
                                 <rect key="frame" x="0.0" y="200" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -191,7 +284,8 @@
                         <outlet property="photoButton" destination="hWt-hi-tUr" id="sqc-Fm-OZf"/>
                         <outlet property="searchBar" destination="XSt-Ea-oEE" id="b5k-Sd-5e2"/>
                         <outlet property="searchDisplayController" destination="N6B-LJ-U5P" id="dQU-Em-wz6"/>
-                        <segue destination="vqA-DN-oUF" kind="show" identifier="SearchResults" id="Lpx-3W-HS2"/>
+                        <segue destination="vqA-DN-oUF" kind="show" identifier="OutfitCollectionSegue" id="Lpx-3W-HS2"/>
+                        <segue destination="7Bk-UY-r6z" kind="show" identifier="detailImage" id="uCv-II-Khy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ns-o3-3Mm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -204,7 +298,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-400" y="-3203"/>
+            <point key="canvasLocation" x="-639" y="-3552"/>
         </scene>
         <!--Title-->
         <scene sceneID="gE1-sT-gI8">
@@ -256,13 +350,13 @@
                                     <action selector="locationAction:" destination="7Bk-UY-r6z" eventType="valueChanged" id="IAn-TU-dcF"/>
                                 </connections>
                             </switch>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Insert Tags Here" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGh-z2-ttE">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Insert Tags Here" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGh-z2-ttE">
                                 <rect key="frame" x="16" y="437" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ll" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QE7-Xf-6Bj">
-                                <rect key="frame" x="234" y="504" width="231" height="21"/>
+                                <rect key="frame" x="353" y="553" width="231" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -306,24 +400,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGT-Y7-k1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="271" y="-3502"/>
+            <point key="canvasLocation" x="353" y="-3482"/>
         </scene>
-        <!--Item-->
+        <!--News Feed-->
         <scene sceneID="ckU-Q4-5zb">
             <objects>
-                <navigationController id="ktC-eM-j9w" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="8g3-mt-fjP"/>
+                <navigationController title="News Feed" id="ktC-eM-j9w" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News Feed" id="8g3-mt-fjP"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="U2K-EY-uUb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="LLn-im-twY" kind="relationship" relationship="rootViewController" id="y5Q-wo-UeX"/>
+                        <segue destination="vqA-DN-oUF" kind="relationship" relationship="rootViewController" id="klR-za-EZC"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOh-e6-Qpl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1122" y="-3502"/>
+            <point key="canvasLocation" x="-1452" y="-3521"/>
         </scene>
         <!--Facebook Login-->
         <scene sceneID="NPL-8z-z0p">
@@ -356,6 +450,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Lpx-3W-HS2"/>
+        <segue reference="sDG-Rv-8hm"/>
+        <segue reference="BWy-gl-2XO"/>
     </inferredMetricsTieBreakers>
 </document>

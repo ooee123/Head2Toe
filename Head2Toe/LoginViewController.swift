@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     @IBOutlet var fbLoginView : FBLoginView!
     
     var user : FBGraphUser? = nil
+    var userObj : PFObject? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         if segue.identifier == "HomeSegue" {
             let homePage = segue.destinationViewController as HomePageTabBarController
             homePage.user = user
+            homePage.userObj = userObj
         }
     }
 
@@ -42,18 +44,35 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
         println("User Logged In")
-        println("Perform Segue")
+        
+        
+        
     }
     
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
-        println("User: \(user)")
-        println("User ID: \(user.objectID)")
-        println("User Name: \(user.name)")
+        //println("User: \(user)")
+        //println("User ID: \(user.objectID)")
+        //println("User Name: \(user.name)")
         var userEmail = user.objectForKey("email") as String
-        println("User Email: \(userEmail)")
+        //println("User Email: \(userEmail)")
         
         self.user = user
         
+        let q = PFQuery(className: "User")
+        q.whereKey("facebookID", equalTo: user.objectID)
+        let results = q.findObjects()
+        if results.count == 0 {
+            let obj = PFObject(className: "User")
+            obj["facebookID"] = user.objectID
+            obj["firstName"] = user.first_name
+            obj["lastName"] = user.last_name
+            obj.saveInBackgroundWithBlock(nil)
+            self.userObj = obj
+        }
+        else
+        {
+            self.userObj = results.first as? PFObject
+        }
         performSegueWithIdentifier("HomeSegue", sender: self)
     }
     

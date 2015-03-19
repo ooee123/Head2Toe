@@ -66,7 +66,7 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
             qu.whereKey("objectId", containedIn: outfitObjs)
             qu.findObjectsInBackgroundWithBlock({ (results: [AnyObject]!, error: NSError!) -> Void in
                     let res = results as [PFObject]
-                    self.performSegueWithIdentifier("SearchResults", sender: res)
+                    self.performSegueWithIdentifier("OutfitCollectinSegue", sender: res)
             })
         }
     }
@@ -83,7 +83,7 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
             detail.userID = userID
             detail.imageObj = sender as UIImage
         }
-        if segue.identifier == "SearchResults" {
+        if segue.identifier == "OutfitCollectionSegue" {
             let outfits = sender as [PFObject]
             let dest = segue.destinationViewController as OutfitsCollectionViewController
             dest.outfits = outfits

@@ -11,7 +11,8 @@ import UIKit
 class HomePageTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     var user : FBGraphUser? = nil
-
+    var userObj : PFObject? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -26,11 +27,29 @@ class HomePageTabBarController: UITabBarController, UITabBarControllerDelegate {
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
         if let viewController = viewController as? UINavigationController {
             if let v = viewController.viewControllers.first as? OutfitsCollectionViewController {
+                // Display news feed
+                // Get all my friends or my own images
+                let r = FBRequest.requestForMyFriends()
+                var allIDs : [String] = []
+                r.startWithCompletionHandler { (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+                    let friends = JSON((result as NSDictionary)["data"]!)
+                    for (index, friend) in friends {
+                        let id = friend["id"].stringValue
+                        allIDs.append(id)
+                    }
+                }
+                allIDs.append(user!.objectID)
+                
                 var query = PFQuery(className: "Outfit")
-                query.whereKey("userID", equalTo: user?.objectID)
+                query.whereKey("userID", containedIn: allIDs)
+                query.addAscendingOrder("createdAt")
                 query.findObjectsInBackgroundWithBlock({ (results: [AnyObject]!, error: NSError!) -> Void in
                     v.outfits = results as [PFObject]
                 })
+            }
+            else if let v = viewController.viewControllers.first as? ProfileViewController {
+                // We're looking at my own profile
+                v.userObject = userObj
             }
         }
     }
