@@ -264,7 +264,7 @@
 				TargetAttributes = {
 					95FBD4431A95340A006AB5D0 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = PY9957M84G;
+						DevelopmentTeam = AW7AKNL7YJ;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -276,7 +276,7 @@
 					};
 					95FBD45A1A95340A006AB5D0 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = PY9957M84G;
+						DevelopmentTeam = AW7AKNL7YJ;
 						TestTargetID = 95FBD4431A95340A006AB5D0;
 					};
 				};
