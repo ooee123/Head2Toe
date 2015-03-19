@@ -10,6 +10,7 @@ import UIKit
 
 class FriendsListTableViewController: UITableViewController {
 
+    let reuseIdentifier = "FriendTableViewCell"
     var friends : [PFObject] = [] {
         didSet {
             tableView.reloadData()
@@ -47,7 +48,7 @@ class FriendsListTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as FriendTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as FriendTableViewCell
 
         // Configure the cell...
         cell.friend = friends[indexPath.row]
