@@ -56,7 +56,13 @@ class DetailViewController: UIViewController, UITextFieldDelegate, CLLocationMan
     
     @IBAction func submitPhoto(sender: AnyObject) {
 
-        var photoData = UIImagePNGRepresentation(imageObj)
+        var rect = CGRectMake(0, 0, 640, 540)
+        UIGraphicsBeginImageContext(rect.size)
+        imageObj.drawInRect(rect)
+        var newImg = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        var photoData = UIImagePNGRepresentation(newImg)
         var photoFile = PFFile(name: "photo.png", data: photoData)
         photoFile.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
             var tags = self.tagsTextBox.text.componentsSeparatedByString(" ")
