@@ -8,7 +8,10 @@
 
 import UIKit
 
-class OutfitDetailViewController: UIViewController {
+class OutfitDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+    
+    @IBOutlet var commentText: UITextView!
+    
     
     var object : PFObject? = nil {
         didSet {
@@ -16,9 +19,25 @@ class OutfitDetailViewController: UIViewController {
                 uiImage?.image = UIImage(data: object["photo"].getData())
                 updateThumbsUpCount()
                 updateTags()
+                commentsTableView?.reloadData()
             }
         }
     }
+    
+    @IBAction func commentButton(sender: UIButton) {
+        if let object2 = object? {
+            var comments = JSON(object2["comments"]).arrayObject as [String]
+            comments.append(commentText.text)
+            object2["comments"] = comments
+            object2.saveInBackgroundWithBlock(nil)
+            object = object2
+        }
+        if commentText.isFirstResponder() {
+            commentText.resignFirstResponder()
+        }
+    }
+    
+    @IBOutlet var commentsTableView: UITableView!
     
     @IBOutlet weak var tagsLabel: UILabel! {
         didSet {
@@ -40,7 +59,9 @@ class OutfitDetailViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        commentText.delegate = self
+        commentsTableView.delegate = self
+        commentsTableView.dataSource = self
         // Do any additional setup after loading the view.
     }
     @IBAction func thumbsUpClicked(sender: AnyObject) {
@@ -74,6 +95,35 @@ class OutfitDetailViewController: UIViewController {
             let str = tags.arrayObject as [String]
             tagsLabel?.text = "\(str)"
         }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return object!["comments"].count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("commentsID") as UITableViewCell
+        if let unwrapped = object? {
+            let comments = JSON(unwrapped["comments"]).arrayObject as [String]
+            cell.textLabel?.text = comments[indexPath.row]
+        }
+        return cell
+    }
+    
+    func updateComments() {
+        
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        var touch = event.allTouches()?.anyObject() as UITouch
+        if (commentText.isFirstResponder() && touch.view != commentText) {
+            commentText.resignFirstResponder()
+        }
+        super.touchesBegan(touches, withEvent: event)
     }
 
     /*

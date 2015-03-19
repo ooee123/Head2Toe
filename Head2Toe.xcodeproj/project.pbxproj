@@ -11,7 +11,6 @@
 		9513634A1AABEF9000AE22BB /* ParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951363491AABEF9000AE22BB /* ParseViewController.swift */; };
 		952BDD7C1ABA2E9E004A25FD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952BDD7B1ABA2E9E004A25FD /* MapKit.framework */; };
 		952BDD7E1ABA4B33004A25FD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952BDD7D1ABA4B33004A25FD /* ProfileViewController.swift */; };
-		952FBF631AB8FBE7005CF1AA /* OutfitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FBF621AB8FBE7005CF1AA /* OutfitDetailViewController.swift */; };
 		95362D0A1A96EC4E000A38CD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95362D091A96EC4E000A38CD /* FacebookSDK.framework */; };
 		95362D0C1A96ECD0000A38CD /* Main.Storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95362D0B1A96ECD0000A38CD /* Main.Storyboard */; };
 		95362D101A9724BD000A38CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95362D0F1A9724BD000A38CD /* CameraViewController.swift */; };
@@ -39,6 +38,7 @@
 		95FBD4871A9568BD006AB5D0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 95FBD4861A9568BD006AB5D0 /* libsqlite3.dylib */; };
 		A437C0691A9AD3DB002E4A18 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437C0681A9AD3DB002E4A18 /* LoginViewController.swift */; };
 		A437C1AC1A9CF59B002E4A18 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A437C1AB1A9CF59B002E4A18 /* StoreKit.framework */; };
+		A495A6241ABAB67300166889 /* OutfitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495A6231ABAB67300166889 /* OutfitDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,6 @@
 		951363491AABEF9000AE22BB /* ParseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseViewController.swift; sourceTree = "<group>"; };
 		952BDD7B1ABA2E9E004A25FD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		952BDD7D1ABA4B33004A25FD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		952FBF621AB8FBE7005CF1AA /* OutfitDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutfitDetailViewController.swift; path = ../OutfitDetailViewController.swift; sourceTree = "<group>"; };
 		95362D091A96EC4E000A38CD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		95362D0B1A96ECD0000A38CD /* Main.Storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.Storyboard; sourceTree = "<group>"; };
 		95362D0F1A9724BD000A38CD /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		95FBD4861A9568BD006AB5D0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A437C0681A9AD3DB002E4A18 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A437C1AB1A9CF59B002E4A18 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		A495A6231ABAB67300166889 /* OutfitDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutfitDetailViewController.swift; path = ../OutfitDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,8 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				95E032461ABA9C9000240E92 /* SwiftyJSON.swift */,
-				952FBF621AB8FBE7005CF1AA /* OutfitDetailViewController.swift */,
 				951363491AABEF9000AE22BB /* ParseViewController.swift */,
+				A495A6231ABAB67300166889 /* OutfitDetailViewController.swift */,
 				9570A6BF1AABA17100E64ABB /* OutfitCollectionViewCell.swift */,
 				95FBD46E1A956856006AB5D0 /* Bolts.framework */,
 				95FBD46F1A956856006AB5D0 /* Parse.framework */,
@@ -330,13 +330,13 @@
 				9570A6C01AABA17100E64ABB /* OutfitCollectionViewCell.swift in Sources */,
 				A437C0691A9AD3DB002E4A18 /* LoginViewController.swift in Sources */,
 				9513634A1AABEF9000AE22BB /* ParseViewController.swift in Sources */,
+				A495A6241ABAB67300166889 /* OutfitDetailViewController.swift in Sources */,
 				95FBD44E1A95340A006AB5D0 /* DetailViewController.swift in Sources */,
 				952BDD7E1ABA4B33004A25FD /* ProfileViewController.swift in Sources */,
 				95E032451ABA74F100240E92 /* FriendTableViewCell.swift in Sources */,
 				9570A6C21AABB45C00E64ABB /* HomePageTabBarController.swift in Sources */,
 				95FBD44A1A95340A006AB5D0 /* AppDelegate.swift in Sources */,
 				95E032431ABA728C00240E92 /* FriendsListTableViewController.swift in Sources */,
-				952FBF631AB8FBE7005CF1AA /* OutfitDetailViewController.swift in Sources */,
 				95E032471ABA9C9000240E92 /* SwiftyJSON.swift in Sources */,
 				95362D101A9724BD000A38CD /* CameraViewController.swift in Sources */,
 			);

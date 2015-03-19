@@ -12,8 +12,6 @@
 	<dict>
 		<key>4775ED42AF456F45729D452EF400DEB0066EFA99</key>
 		<string>https://github.com/ooee123/Head2Toe.git</string>
-		<key>9B615E74BECAC743174C4C2DC6CD3976A4EA32AC</key>
-		<string>https://github.com/ooee123/proj</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Head2Toe.xcodeproj</string>
@@ -21,8 +19,6 @@
 	<dict>
 		<key>4775ED42AF456F45729D452EF400DEB0066EFA99</key>
 		<string>../..</string>
-		<key>9B615E74BECAC743174C4C2DC6CD3976A4EA32AC</key>
-		<string>../../../proj</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/ooee123/Head2Toe.git</string>
@@ -39,14 +35,6 @@
 			<string>4775ED42AF456F45729D452EF400DEB0066EFA99</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Head2Toe</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9B615E74BECAC743174C4C2DC6CD3976A4EA32AC</string>
-			<key>IDESourceControlWCCName</key>
-			<string>proj</string>
 		</dict>
 	</array>
 </dict>
