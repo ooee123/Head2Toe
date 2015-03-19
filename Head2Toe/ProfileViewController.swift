@@ -59,12 +59,14 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func userOutfitsClicked(sender: AnyObject) {
+        /*
         let q = PFQuery(className: "Outfit")
         q.whereKey("userID", equalTo: userObject?["facebookID"])
         q.addAscendingOrder("createdAt")
         q.findObjectsInBackgroundWithBlock { (results: [AnyObject]!, error: NSError!) -> Void in
             self.performSegueWithIdentifier("OutfitCollectionSegue", sender: results)
         }
+*/
     }
 
     
@@ -88,9 +90,11 @@ class ProfileViewController: UIViewController {
             let res = q.findObjects() as [PFObject]
             dest.friends = res
         }
+        /*
         if segue.identifier == "PickProfileImageSegue" {
             
         }
+*/
     }
 
 
