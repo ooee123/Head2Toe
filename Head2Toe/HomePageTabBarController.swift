@@ -12,11 +12,23 @@ class HomePageTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     var user : FBGraphUser? = nil
     var userObj : PFObject? = nil
+    var friendFBIds : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
         // Do any additional setup after loading the view.
+        
+        let r = FBRequest.requestForMyFriends()
+        
+        r.startWithCompletionHandler { (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+            let friends = JSON((result as NSDictionary)["data"]!)
+            for (index, friend) in friends {
+                let id = friend["id"].stringValue
+                println(id)
+                self.friendFBIds.append(id)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,15 +41,7 @@ class HomePageTabBarController: UITabBarController, UITabBarControllerDelegate {
             if let v = viewController.viewControllers.first as? OutfitsCollectionViewController {
                 // Display news feed
                 // Get all my friends or my own images
-                let r = FBRequest.requestForMyFriends()
-                var allIDs : [String] = []
-                r.startWithCompletionHandler { (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
-                    let friends = JSON((result as NSDictionary)["data"]!)
-                    for (index, friend) in friends {
-                        let id = friend["id"].stringValue
-                        allIDs.append(id)
-                    }
-                }
+                var allIDs = friendFBIds
                 allIDs.append(user!.objectID)
                 
                 var query = PFQuery(className: "Outfit")

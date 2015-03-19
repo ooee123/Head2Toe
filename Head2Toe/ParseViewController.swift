@@ -66,7 +66,7 @@ class ParseViewController: UIViewController, UIImagePickerControllerDelegate, UI
             qu.whereKey("objectId", containedIn: outfitObjs)
             qu.findObjectsInBackgroundWithBlock({ (results: [AnyObject]!, error: NSError!) -> Void in
                     let res = results as [PFObject]
-                    self.performSegueWithIdentifier("OutfitCollectinSegue", sender: res)
+                    self.performSegueWithIdentifier("OutfitCollectionSegue", sender: res)
             })
         }
     }

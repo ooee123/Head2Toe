@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var changeProfilePicButton: UIButton!
     @IBOutlet weak var profilePictureView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel! {
         didSet {
@@ -31,10 +32,24 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    @IBAction func changeProfilePic(sender: AnyObject) {
+        let id = userObject?["facebookID"] as String
+        let q = PFQuery(className: "Outfit")
+        q.whereKey("userID", equalTo: id)
+        q.findObjectsInBackgroundWithBlock { (results: [AnyObject]!, error: NSError!) -> Void in
+            self.performSegueWithIdentifier("PickProfileImageSegue", sender: results)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if userObject?["facebookID"] !== (tabBarController as HomePageTabBarController).user?.objectID {
+            changeProfilePicButton.enabled = false
+        }
+        else
+        {
+            changeProfilePicButton.enabled = true
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -66,6 +81,14 @@ class ProfileViewController: UIViewController {
         }
         if segue.identifier == "FriendsListSegue" {
             let dest = segue.destinationViewController as FriendsListTableViewController
+            let q = PFQuery(className: "User")
+            let friendsID = (tabBarController as HomePageTabBarController).friendFBIds
+            q.whereKey("facebookID", containedIn: friendsID)
+            println((tabBarController as HomePageTabBarController).friendFBIds)
+            let res = q.findObjects() as [PFObject]
+            dest.friends = res
+        }
+        if segue.identifier == "PickProfileImageSegue" {
             
         }
     }
