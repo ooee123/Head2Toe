@@ -35,6 +35,7 @@ class OutfitDetailViewController: UIViewController, UITableViewDelegate, UITable
         if commentText.isFirstResponder() {
             commentText.resignFirstResponder()
         }
+        commentText.text = ""
     }
     
     @IBOutlet var commentsTableView: UITableView!

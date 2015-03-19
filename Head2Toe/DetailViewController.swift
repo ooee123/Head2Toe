@@ -73,7 +73,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, CLLocationMan
             photoObject["userID"] = self.userID
             photoObject["photo"] = photoFile
             photoObject["tags"] = tags
-            
+            photoObject["comments"] = []
             photoObject["likedIDs"] = []
             
             if self.locationSwitch.on {
